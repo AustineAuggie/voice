@@ -1,6 +1,6 @@
 # Voice 0.6.1 validation
 
-10 November 2026. This release repairs one reproduced speaker-engine failure, adds useful local error diagnostics, improves meeting prompt matching/rearming and prepares source distribution through GitHub. It does not replace the speech or speaker models.
+10 November 2026. This release repairs one reproduced speaker-engine failure, adds useful local error diagnostics, improves meeting prompt matching/rearming and publishes source distribution through GitHub. It does not replace the speech or speaker models.
 
 ## Speaker engine: actual inference
 
@@ -20,15 +20,15 @@ The 25 new process checks run a real child-process fixture through MeetingSpeake
 
 ## Installer, source package and GitHub
 
-17 checked-source updater tests and 13 installation transaction tests passed. Real unchanged 0.4.2, 0.5.0 and 0.6.0 source packages were used to verify accepted upgrades, cache preservation, unknown-edit refusal and rollback. Mac-only commands use test stand-ins in installation tests; real signing was not executed here.
+17 checked-source updater tests and 13 installation transaction tests passed. Real unchanged 0.4.2, 0.5.0 and 0.6.0 source packages were used to verify accepted upgrades, cache preservation, unknown-edit refusal and rollback. Mac-only commands use test stand-ins in these local installation tests; real signing was not exercised by those tests.
 
 Voice.app is version 0.6.1 build 12. The bundle identifier, internal LocalVoice executable and LocalVoice support directory remain unchanged. The sidebar reads the bundle version. Existing models are reused.
 
-The clean package includes .gitignore and a manual-only Mac build workflow. YAML and embedded shell syntax were checked; the workflow has not run. No GitHub repository was created or published. Model weights, recordings, credentials and build outputs are not part of the source ZIP. Dependency licences remain included.
+The source is public at [AustineAuggie/voice](https://github.com/AustineAuggie/voice). The clean package includes .gitignore and a manual-only Mac build workflow. YAML and embedded shell syntax were checked locally. [The GitHub Actions Mac build](https://github.com/AustineAuggie/voice/actions/runs/42857630920) passed on an Apple silicon macOS 15 runner for source commit `27dc5d64b367ebeb6df0260534042068d6415c0b`. It completed the portable suites, compiled the Mac app and three engine executables, verified the app signature, and passed the installer transaction tests. Subsequent publication-documentation updates do not change that tested application source. Model weights, recordings, credentials and build outputs are not part of the source ZIP. Dependency licences remain included.
 
 ## Limits and Mac verification
 
-All Swift sources pass syntax parsing, and portable Foundation paths compile with Swift 6.0.3 in Swift 5 mode. There is no macOS SDK or native Mac desktop here. These checks cannot establish Mac framework type-checking, actual permissions, live meeting detection, UI interactions or Apple silicon model performance. The installer compiles before replacing the installed app; the included manual GitHub Actions workflow can provide a genuine Mac build check after publication.
+The local Linux checks establish Swift syntax parsing and compilation of portable Foundation paths with Swift 6.0.3 in Swift 5 mode. They do not establish Mac framework type-checking. The separate GitHub Actions run passed compilation against the Mac SDK and app-signature verification on an Apple silicon runner. It did not exercise microphone capture, Mac permissions, live meeting detection, UI interactions or model performance in real meetings. The installer compiles before replacing the installed app.
 
 Speaker word attribution retains the prior timing limitation: in the earlier 16-second speech-to-speaker integration fixture, 14 of 33 word pieces were Unclear. This release does not claim to fix coarse Whisper timestamps, overlapping speech or similar-voice clustering.
 

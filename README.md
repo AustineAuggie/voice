@@ -56,7 +56,7 @@ Stop processing keeps captured audio and completed transcription for recovery. W
 
 If macOS requests renewed permission after the update, enable the installed Voice app for Microphone and Device Control and Data Access (Accessibility on older macOS). Online meetings may also need Screen & System Audio Recording. No screen video is recorded. Use the Settings page to locate the installed app.
 
-TEST-RESULTS.md records executed checks and platform limits. Portable tests cover data, workflow and native inference; Swift syntax checks alone cannot establish that the native app builds with the Mac SDK. A manual GitHub Actions workflow is included to build against that SDK on an Apple silicon runner. Adding the workflow does not mean it has run or passed. Real microphone capture, permissions, meeting detection and speaker quality still need checks on a Mac. After setup, confirm Voice 0.6.1 in the sidebar and test a short meeting before relying on a full recording.
+TEST-RESULTS.md records executed checks and platform limits. Portable tests cover data, workflow and native inference; Swift syntax checks alone cannot establish that the native app builds with the Mac SDK. [The GitHub Actions Mac build](https://github.com/AustineAuggie/voice/actions/runs/42857630920) passed against that SDK on an Apple silicon runner, including app-signature verification and installer transaction tests. Real microphone capture, permissions, meeting detection and speaker quality still need checks on a Mac. After setup, confirm Voice 0.6.1 in the sidebar and test a short meeting before relying on a full recording.
 
 ## Development
 

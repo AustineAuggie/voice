@@ -16,8 +16,8 @@ This is a **source installer**. It builds Voice on the recipient's Mac; the down
 
 ## Download and install
 
-1. Open the repository link above and choose **Code → Download ZIP**.
-2. Open the downloaded ZIP to extract it. GitHub normally names the folder **voice-main**. Keep the files together in that folder.
+1. Open the [Voice 0.6.1 release page](https://github.com/AustineAuggie/voice/releases/tag/v0.6.1) and download **Voice-0.6.1.zip** under **Assets**. If the release is not yet published, use the source download alternative below.
+2. Open the ZIP to extract it into Downloads. The release archive contains the folder **Voice-0.6.1**. Keep the files together in that folder.
 3. Finish any recording in an existing Voice installation, then open **Terminal**.
 4. Type `bash `, including the space after it. Drag **install.sh** from the extracted folder into Terminal, then press **Return**. Do not press Return after typing only `bash`.
 5. Follow the installer messages. If Apple asks you to install Command Line Tools, finish that installation and run the same command again.
@@ -26,10 +26,20 @@ This is a **source installer**. It builds Voice on the recipient's Mac; the down
 For the usual Downloads folder and unchanged folder name, the complete command is:
 
 ```bash
-bash "$HOME/Downloads/voice-main/install.sh"
+bash "$HOME/Downloads/Voice-0.6.1/install.sh"
 ```
 
 If Finder added a number to the folder name, use the drag-and-drop method above. Existing verified models are reused during updates. Keep older source folders until an update succeeds because their build caches may be reused.
+
+### Source download alternative
+
+Open the public repository and choose **Code → Download ZIP**. GitHub normally names the extracted folder **voice-main**. Run its **install.sh** using the same drag-and-drop method, or use:
+
+```bash
+bash "$HOME/Downloads/voice-main/install.sh"
+```
+
+This downloads the current main branch, which can differ from the versioned release. Both download routes contain source code and require the Mac build tools listed above.
 
 ## What stays on the Mac
 
