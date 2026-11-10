@@ -1,0 +1,33 @@
+name: Mac build check
+
+# Explicitly run from Actions after choosing a repository and enabling Actions.
+# This validates the native app build; it is not hosted speech processing.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  mac-build:
+    runs-on: macos-15
+    timeout-minutes: 45
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
+      - name: Verify build environment
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(uname -m)" = arm64
+          xcrun --show-sdk-version
+          command -v cmake
+          command -v python3
+      - name: Build the Mac app and run portable checks
+        shell: bash
+        run: bash build.sh
+      - name: Exercise installer backup and rollback
+        shell: bash
+        run: python3 Tests/InstallTests.py

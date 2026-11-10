@@ -1,0 +1,29 @@
+LocalVoice 0.5 local speaker analysis dependencies
+
+sherpa-onnx v2.0.1 (Apache-2.0)
+https://github.com/k2-fsa/sherpa-onnx/tree/v2.0.1
+C API header vendored from this tag. Binary SDK is downloaded and SHA-256 verified by scripts/build-diarizer.sh.
+The SDK embeds ONNX Runtime 1.28.2 (MIT); its licence and third-party notices are included separately.
+
+Pyannote segmentation 3.0 (MIT, Copyright (c) 2022 CNRS)
+Public ONNX conversion distributed by k2-fsa:
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/speaker-segmentation-models
+Original model: https://huggingface.co/pyannote/segmentation-3.0
+Licence copied from the distributed model archive.
+Installed model: segmentation.onnx (5,992,913 bytes)
+SHA-256: 220ad67ca923bef2fa91f2390c786097bf305bceb5e261d4af67b38e938e1079
+
+WeSpeaker VoxCeleb ResNet34 (Apache-2.0)
+https://huggingface.co/Wespeaker/wespeaker-voxceleb-resnet34
+https://github.com/wenet-e2e/wespeaker
+Public ONNX conversion distributed by k2-fsa:
+https://github.com/k2-fsa/sherpa-onnx/releases/tag/speaker-recongition-models
+Installed model: embedding.onnx (26,534,365 bytes)
+SHA-256: 5ef208a9da1453335308a6b6f4e6dfbd7e183a38b604de0a57664f45d257fe94
+
+Models are downloaded during setup. The native worker itself makes no network calls.
+Audio is supplied as mono 16 kHz float32 PCM and processed on the user's computer.
+Speaker numbers are meeting-local cluster labels; they do not identify a real person.
+Cluster confidence is not a calibrated probability. Automatic speaker count is estimated,
+with no hardcoded limit of three speakers. Short turns, noise, overlapping voices and
+similar voices can produce merged or split labels; review and correction remain necessary.

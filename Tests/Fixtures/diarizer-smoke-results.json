@@ -1,0 +1,271 @@
+{
+  "engine": "sherpa-onnx v2.0.1",
+  "segmentation_sha256": "220ad67ca923bef2fa91f2390c786097bf305bceb5e261d4af67b38e938e1079",
+  "embedding_sha256": "5ef208a9da1453335308a6b6f4e6dfbd7e183a38b604de0a57664f45d257fe94",
+  "automatic_cluster_threshold": 0.4,
+  "threads": 2,
+  "platform": "Linux x86_64 CPU",
+  "note": "Fixture names give the upstream expected count. Count agreement does not establish diarization error rate or accuracy on the user\u2019s voice. No macOS timing claim.",
+  "fixtures": [
+    {
+      "audio": "0-four-speakers-zh.wav",
+      "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-segmentation-models/0-four-speakers-zh.wav",
+      "audio_sha256": "bedf036caed208386c67b4ef4b11f83d74dd0d420b102163a1c33cd09cde7010",
+      "elapsed_seconds": 8.431,
+      "exit_code": 0,
+      "stderr": "speaker-progress 25 77\nspeaker-progress 50 77\nspeaker-progress 75 77\nspeaker-progress 77 77\n",
+      "result": {
+        "sample_rate": 16000,
+        "segments": [
+          {
+            "start": 0.31784377,
+            "end": 3.9965937,
+            "speaker": 0,
+            "confidence": 0.4399792
+          },
+          {
+            "start": 4.4015937,
+            "end": 6.865344,
+            "speaker": 0,
+            "confidence": 0.4517915
+          },
+          {
+            "start": 7.0172191,
+            "end": 8.1478443,
+            "speaker": 1,
+            "confidence": 0.54487783
+          },
+          {
+            "start": 8.5022192,
+            "end": 10.746594,
+            "speaker": 1,
+            "confidence": 0.53537267
+          },
+          {
+            "start": 11.455344,
+            "end": 13.632219,
+            "speaker": 1,
+            "confidence": 0.50915879
+          },
+          {
+            "start": 13.750344,
+            "end": 17.04097,
+            "speaker": 2,
+            "confidence": 0.39487937
+          },
+          {
+            "start": 22.13722,
+            "end": 24.837221,
+            "speaker": 0,
+            "confidence": 0.61203033
+          },
+          {
+            "start": 27.638472,
+            "end": 29.477846,
+            "speaker": 2,
+            "confidence": 0.4972932
+          },
+          {
+            "start": 30.000971,
+            "end": 31.553471,
+            "speaker": 2,
+            "confidence": 0.50484049
+          },
+          {
+            "start": 33.679718,
+            "end": 34.405346,
+            "speaker": 2,
+            "confidence": 0.47095722
+          },
+          {
+            "start": 34.742844,
+            "end": 36.34597,
+            "speaker": 2,
+            "confidence": 0.46119305
+          },
+          {
+            "start": 36.734093,
+            "end": 37.93222,
+            "speaker": 2,
+            "confidence": 0.43870866
+          },
+          {
+            "start": 48.040344,
+            "end": 50.470345,
+            "speaker": 2,
+            "confidence": 0.51767683
+          },
+          {
+            "start": 52.529095,
+            "end": 54.604721,
+            "speaker": 3,
+            "confidence": 0.067310855
+          }
+        ],
+        "num_speakers": 4
+      }
+    },
+    {
+      "audio": "1-two-speakers-en.wav",
+      "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-segmentation-models/1-two-speakers-en.wav",
+      "audio_sha256": "f1c877dc01595e28be7147bf2fe38e5268147a868bf3fdb5c37b97f5940e21f3",
+      "elapsed_seconds": 1.58,
+      "exit_code": 0,
+      "stderr": "speaker-progress 14 14\n",
+      "result": {
+        "sample_rate": 16000,
+        "segments": [
+          {
+            "start": 1.5834688,
+            "end": 3.4059689,
+            "speaker": 0,
+            "confidence": 0.88245571
+          },
+          {
+            "start": 4.4015937,
+            "end": 6.4603438,
+            "speaker": 0,
+            "confidence": 0.86354834
+          },
+          {
+            "start": 9.3459692,
+            "end": 11.472219,
+            "speaker": 1,
+            "confidence": 0.83863318
+          },
+          {
+            "start": 12.164094,
+            "end": 14.644719,
+            "speaker": 1,
+            "confidence": 0.88210988
+          }
+        ],
+        "num_speakers": 2
+      }
+    },
+    {
+      "audio": "2-two-speakers-en.wav",
+      "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-segmentation-models/2-two-speakers-en.wav",
+      "audio_sha256": "ee9c33d34e8f0fda4b78277f609944a1565aa16e6e2146f4cb8f0efb0d70030b",
+      "elapsed_seconds": 6.34,
+      "exit_code": 0,
+      "stderr": "speaker-progress 25 48\nspeaker-progress 48 48\n",
+      "result": {
+        "sample_rate": 16000,
+        "segments": [
+          {
+            "start": 0.03096875,
+            "end": 2.7647188,
+            "speaker": 0,
+            "confidence": 0.32320327
+          },
+          {
+            "start": 2.7647188,
+            "end": 7.8103437,
+            "speaker": 1,
+            "confidence": 0.76942885
+          },
+          {
+            "start": 7.8440938,
+            "end": 11.117845,
+            "speaker": 0,
+            "confidence": 0.51435184
+          },
+          {
+            "start": 11.286594,
+            "end": 13.902219,
+            "speaker": 1,
+            "confidence": 0.71375805
+          },
+          {
+            "start": 13.952845,
+            "end": 23.92597,
+            "speaker": 0,
+            "confidence": 0.4748047
+          },
+          {
+            "start": 18.374096,
+            "end": 18.62722,
+            "speaker": 1,
+            "confidence": 0.53058743
+          },
+          {
+            "start": 24.39847,
+            "end": 27.452847,
+            "speaker": 0,
+            "confidence": 0.47539383
+          }
+        ],
+        "num_speakers": 2
+      }
+    },
+    {
+      "audio": "3-two-speakers-en.wav",
+      "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-segmentation-models/3-two-speakers-en.wav",
+      "audio_sha256": "dd3cf2344f8410ee9a2e271e96d1c3f9b530f113ae5b47defecbc0d741a468e9",
+      "elapsed_seconds": 11.238,
+      "exit_code": 0,
+      "stderr": "speaker-progress 25 76\nspeaker-progress 50 76\nspeaker-progress 75 76\nspeaker-progress 76 76\n",
+      "result": {
+        "sample_rate": 16000,
+        "segments": [
+          {
+            "start": 0.46971878,
+            "end": 8.3840942,
+            "speaker": 0,
+            "confidence": 0.60361236
+          },
+          {
+            "start": 8.9915943,
+            "end": 11.640969,
+            "speaker": 0,
+            "confidence": 0.52752125
+          },
+          {
+            "start": 12.602844,
+            "end": 13.379094,
+            "speaker": 1,
+            "confidence": 0.38641903
+          },
+          {
+            "start": 13.817844,
+            "end": 25.664095,
+            "speaker": 1,
+            "confidence": 0.62209952
+          },
+          {
+            "start": 26.710346,
+            "end": 30.760345,
+            "speaker": 0,
+            "confidence": 0.54601198
+          },
+          {
+            "start": 31.51972,
+            "end": 46.335968,
+            "speaker": 1,
+            "confidence": 0.69206554
+          },
+          {
+            "start": 47.534096,
+            "end": 48.209095,
+            "speaker": 2,
+            "confidence": 0.099393122
+          },
+          {
+            "start": 48.209095,
+            "end": 50.082218,
+            "speaker": 0,
+            "confidence": 0.48447672
+          },
+          {
+            "start": 50.554718,
+            "end": 53.929718,
+            "speaker": 0,
+            "confidence": 0.48447672
+          }
+        ],
+        "num_speakers": 3
+      }
+    }
+  ]
+}

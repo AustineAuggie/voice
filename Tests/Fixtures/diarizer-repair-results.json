@@ -1,0 +1,70 @@
+{
+  "release": "0.6.1",
+  "platform": "Linux x86_64 CPU; macOS capture and Apple silicon execution not exercised",
+  "engine": "sherpa-onnx v2.0.1, 2 CPU threads, automatic speaker count",
+  "source_sha256": "593c78c508b4700df25d39030869e768705e808546e890814b95ba4ade8782ab",
+  "regression": {
+    "fixture": "1-two-speakers-en.wav",
+    "upstream_url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-segmentation-models/1-two-speakers-en.wav",
+    "fixture_sha256": "f1c877dc01595e28be7147bf2fe38e5268147a868bf3fdb5c37b97f5940e21f3",
+    "gain": 4,
+    "peak": 3.424560546875,
+    "before": {
+      "exit_code": 1,
+      "message": "Meeting audio contains invalid samples."
+    },
+    "after": {
+      "exit_code": 0,
+      "matches_normalized_reference": true,
+      "original_audio_unchanged": true,
+      "estimated_speakers": 2
+    },
+    "scope": "A reproduced finite over-range audio failure. The cause of the user screenshot cannot be confirmed from its generic code 1 alone."
+  },
+  "native_checks": 171,
+  "coverage": [
+    "empty and silent capture",
+    "malformed bytes",
+    "NaN and both infinities",
+    "invalid numeric options",
+    "missing models",
+    "stable diagnostic markers",
+    "private output permissions",
+    "no output on failed request",
+    "input bytes unchanged",
+    "normalization against real inference reference",
+    "multi-speaker fixtures",
+    "cancellation without publishing results"
+  ],
+  "fixtures": [
+    {
+      "audio": "1-two-speakers-en.wav",
+      "expected_count_from_upstream_name": 2,
+      "estimated_speakers": 2,
+      "turns": 4,
+      "elapsed_seconds": 1.48
+    },
+    {
+      "audio": "0-four-speakers-zh.wav",
+      "expected_count_from_upstream_name": 4,
+      "estimated_speakers": 4,
+      "turns": 14,
+      "elapsed_seconds": 8.06
+    },
+    {
+      "audio": "2-two-speakers-en.wav",
+      "expected_count_from_upstream_name": 2,
+      "estimated_speakers": 2,
+      "turns": 7,
+      "elapsed_seconds": 6.1
+    },
+    {
+      "audio": "3-two-speakers-en.wav",
+      "expected_count_from_upstream_name": 2,
+      "estimated_speakers": 3,
+      "turns": 9,
+      "elapsed_seconds": 11.45
+    }
+  ],
+  "limits": "One fixture remains over-split. Counts do not establish diarization error rate, word alignment accuracy or performance on the user recording. Original baseline fixture URLs and hashes are in diarizer-smoke-results.json."
+}

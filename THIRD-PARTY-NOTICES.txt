@@ -1,0 +1,24 @@
+whisper.cpp — Georgi Gerganov and contributors. MIT license.
+https://github.com/ggml-org/whisper.cpp
+The build includes the upstream license.
+
+OpenAI Whisper weights — MIT license.
+https://github.com/openai/whisper
+https://huggingface.co/ggerganov/whisper.cpp
+The model license is included in Resources/Whisper-model-LICENSE.txt.
+
+llama.cpp — Georgi Gerganov and contributors. MIT license.
+https://github.com/ggml-org/llama.cpp
+The build includes the upstream license.
+
+nlohmann/json — Niels Lohmann and contributors. MIT license.
+The pinned JSON header contains the notice, copied into the app.
+
+Qwen2.5-7B-Instruct-GGUF — Qwen / Alibaba Cloud. Apache License 2.0.
+https://huggingface.co/Qwen/Qwen2.5-7B-Instruct-GGUF
+The model is downloaded from its publisher, not redistributed in this ZIP.
+The Apache License is included in Resources/Qwen-LICENSE.txt.
+
+
+Local meeting speaker analysis (0.5.0)
+Sherpa-onnx v2.0.1 (Apache-2.0), ONNX Runtime (MIT and bundled third-party notices), Pyannote segmentation 3.0 (MIT) and WeSpeaker (Apache-2.0). See Resources/*LICENSE.txt, onnxruntime-ThirdPartyNotices.txt and Speaker-models-NOTICE.txt. Downloads are pinned by SHA-256 in scripts/build-diarizer.sh and scripts/download-speaker-models.sh.

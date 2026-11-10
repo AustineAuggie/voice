@@ -1,0 +1,23 @@
+VOICE 0.6.1 — SPEAKER RECOVERY AND MEETING DETECTION
+
+1. Finish any current recording.
+2. Extract Voice-0.6.1.zip into Downloads. Keep your older LocalVoice folders.
+3. Paste this entire line into the same Terminal window, then press Return:
+
+bash "$HOME/Downloads/Voice-0.6.1/install.sh"
+
+The installed app is now Voice. Existing meeting notes, vocabulary, settings and models are reused. Your previous app is backed up; installation occurs after the build succeeds.
+
+From LocalVoice 0.5.0 there are no new models. Older versions need the small speaker component. This package is source code plus a Mac installer, not a precompiled app.
+
+Open Notetaker in the sidebar. Select a meeting to preview it, then open it for My notes, Transcript and Summary. Start meeting opens the audio options. Speaker labels are estimates and can be corrected.
+
+For an existing meeting that says speaker analysis did not finish: open it, click the three-dot menu and choose Recover / retry. If it still fails, choose Copy speaker diagnostics and share that text after reviewing it. This does not copy the recording or transcript.
+
+Meeting prompts now track separate candidates and meeting endings while the app is busy, and recognise supported audio helper processes. Start is still your choice; detection remains a best-effort hint and in-room meetings start manually.
+
+To share via GitHub, see docs/GITHUB.md. This is a local Mac app, not a cloud service or a server. No repository has been published by this package.
+
+If the folder has a different name: type bash followed by a space, drag install.sh into Terminal, then press Return. Do not run bash alone first.
+
+Mac compilation and live audio/UI verification happen on your computer; see TEST-RESULTS.md for checks already performed.

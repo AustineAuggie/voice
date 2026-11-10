@@ -1,0 +1,131 @@
+{
+  "model": "ggml-large-v3-turbo.bin",
+  "model_sha256": "1fc70f774d38eb169993ac391eea357ef47c88757ef72ee5943879b7e8e2bc69",
+  "audio_seconds": 11.0,
+  "execution": "Linux x86_64 CPU",
+  "load_seconds": 0.755,
+  "timed": {
+    "text": " And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+    "version": 1,
+    "words": [
+      {
+        "end": 0.33,
+        "start": 0.1,
+        "text": " And"
+      },
+      {
+        "end": 0.68,
+        "start": 0.33,
+        "text": " so,"
+      },
+      {
+        "end": 0.73,
+        "start": 0.68,
+        "text": " my"
+      },
+      {
+        "end": 1.22,
+        "start": 0.73,
+        "text": " fellow"
+      },
+      {
+        "end": 3.29,
+        "start": 1.22,
+        "text": " Americans,"
+      },
+      {
+        "end": 4.01,
+        "start": 3.29,
+        "text": " ask"
+      },
+      {
+        "end": 4.98,
+        "start": 4.01,
+        "text": " not"
+      },
+      {
+        "end": 5.41,
+        "start": 4.98,
+        "text": " what"
+      },
+      {
+        "end": 5.52,
+        "start": 5.41,
+        "text": " your"
+      },
+      {
+        "end": 6.0,
+        "start": 5.52,
+        "text": " country"
+      },
+      {
+        "end": 6.54,
+        "start": 6.0,
+        "text": " can"
+      },
+      {
+        "end": 7.01,
+        "start": 6.54,
+        "text": " do"
+      },
+      {
+        "end": 7.44,
+        "start": 7.01,
+        "text": " for"
+      },
+      {
+        "end": 8.19,
+        "start": 7.44,
+        "text": " you,"
+      },
+      {
+        "end": 8.43,
+        "start": 8.19,
+        "text": " ask"
+      },
+      {
+        "end": 8.91,
+        "start": 8.43,
+        "text": " what"
+      },
+      {
+        "end": 9.08,
+        "start": 8.91,
+        "text": " you"
+      },
+      {
+        "end": 9.35,
+        "start": 9.08,
+        "text": " can"
+      },
+      {
+        "end": 9.58,
+        "start": 9.35,
+        "text": " do"
+      },
+      {
+        "end": 9.73,
+        "start": 9.58,
+        "text": " for"
+      },
+      {
+        "end": 9.91,
+        "start": 9.73,
+        "text": " your"
+      },
+      {
+        "end": 10.4,
+        "start": 9.91,
+        "text": " country."
+      }
+    ],
+    "word_count": 22,
+    "wall_seconds": 14.669,
+    "worker_seconds": 14.667758986
+  },
+  "plain": {
+    "text": " And so, my fellow Americans, ask not what your country can do for you, ask what you can do for your country.",
+    "wall_seconds": 14.64,
+    "worker_seconds": 14.639595918
+  }
+}

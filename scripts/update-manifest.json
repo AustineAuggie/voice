@@ -1,0 +1,822 @@
+{
+  "bases": [
+    "0.4.0",
+    "0.4.1",
+    "0.4.2",
+    "0.5.0",
+    "0.6.0"
+  ],
+  "files": {
+    ".github/workflows/checks.yml": {
+      "accepted": [
+        "7304e787de3a120835f0cc1f634d028eae5e2f3ec32bbd8e616a29fa26bffbd5"
+      ],
+      "after": "7304e787de3a120835f0cc1f634d028eae5e2f3ec32bbd8e616a29fa26bffbd5",
+      "allow_missing": true,
+      "mode": "0644"
+    },
+    ".gitignore": {
+      "accepted": [
+        "ee60125822f267d57feeddf167325e8afb381aa771c5f752e15a960a8df77740"
+      ],
+      "after": "ee60125822f267d57feeddf167325e8afb381aa771c5f752e15a960a8df77740",
+      "allow_missing": true,
+      "mode": "0644"
+    },
+    "COMMERCIAL-RELEASE.txt": {
+      "accepted": [
+        "e4b3d0998e5f0b2e97a4b72b92039c9ec51f5aebbfd8f3fc0a44f133a4b7c30e"
+      ],
+      "after": "e4b3d0998e5f0b2e97a4b72b92039c9ec51f5aebbfd8f3fc0a44f133a4b7c30e",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "DISTRIBUTION.md": {
+      "accepted": [
+        "ba8e02a7d11d95d43f6b48d39a9cf1b9f22884240ac57b69c3a62d2dfef99f68"
+      ],
+      "after": "ba8e02a7d11d95d43f6b48d39a9cf1b9f22884240ac57b69c3a62d2dfef99f68",
+      "allow_missing": true,
+      "mode": "0644"
+    },
+    "LICENSE": {
+      "accepted": [
+        "44c3e518e510f7aabe0aa49631bf9e20c1280eaeb61bb6e1eeb13cb7edb911ed"
+      ],
+      "after": "44c3e518e510f7aabe0aa49631bf9e20c1280eaeb61bb6e1eeb13cb7edb911ed",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Native/CMakeLists.txt": {
+      "accepted": [
+        "bf173b4ba30bf8749376af781f771eeed9960923371870fd1588970572172712"
+      ],
+      "after": "bf173b4ba30bf8749376af781f771eeed9960923371870fd1588970572172712",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Native/WorkerLoop.hpp": {
+      "accepted": [
+        "fc08ed1aee96bb98b40f33a07da117c5c05a81abcba7191cbb8fd1fc10dee631"
+      ],
+      "after": "fc08ed1aee96bb98b40f33a07da117c5c05a81abcba7191cbb8fd1fc10dee631",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Native/diarize.cpp": {
+      "accepted": [
+        "593c78c508b4700df25d39030869e768705e808546e890814b95ba4ade8782ab",
+        "6d98d5aa1cfaf2bf208996b116aafc8f0f4d6ac72bf723cba0a88ef83cb5967d"
+      ],
+      "after": "593c78c508b4700df25d39030869e768705e808546e890814b95ba4ade8782ab",
+      "allow_missing": true,
+      "mode": "0644"
+    },
+    "Native/editor.cpp": {
+      "accepted": [
+        "5a3e6445943369ab4feaea02a2a699b4bb549900818d1aebd3945d868ac1211e"
+      ],
+      "after": "5a3e6445943369ab4feaea02a2a699b4bb549900818d1aebd3945d868ac1211e",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Native/sherpa-c-api.h": {
+      "accepted": [
+        "5698f38ba09ad2bdf085c56a6cbbd7741acf15e25f4ce5c7097b9702cadf437f"
+      ],
+      "after": "5698f38ba09ad2bdf085c56a6cbbd7741acf15e25f4ce5c7097b9702cadf437f",
+      "allow_missing": true,
+      "mode": "0644"
+    },
+    "Native/speech.cpp": {
+      "accepted": [
+        "61bf0f4aa4a36ec60fbcac8d5a3b26ef3a6f9c13df4a28eb3eedfaceac058dd1",
+        "ccfbc44f737070898473105ffc5dff390bdfaa4d5387eecc95ba3f94f3b07635"
+      ],
+      "after": "61bf0f4aa4a36ec60fbcac8d5a3b26ef3a6f9c13df4a28eb3eedfaceac058dd1",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "README.md": {
+      "accepted": [
+        "1e00e800a0877a1b233e7ca50dc5032387867590d5ac957544b14ccc0ea66aa6",
+        "4ecbc2e9014d528b3189b0d383984dc5e830e64bc9148c01e969f556d2cac90a",
+        "7711be835c930d66564753ec79e5b5f1b96f6ff6e903399ae508aa45b456f414",
+        "83b8b34ec36e1394b70aff72df810297244a66ea3a7df5391906a5c5f64965dd",
+        "9474d739c7b45c5ebe37bae4c2c7ec3ce2b856f48808cc1d0f2b96e7e8368773",
+        "adf53883a2dca25037ffe4ae8811cf2b05455da7a1c860688a186abcd8723532",
+        "da8ef6673639c0de4b591ac361f9b78e9a85fb404b7913e1fa924677f1290ba1"
+      ],
+      "after": "adf53883a2dca25037ffe4ae8811cf2b05455da7a1c860688a186abcd8723532",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Resources/Info.plist": {
+      "accepted": [
+        "4bde4ffc60c3d62ae6553687ebffbd6aca946b8d7dc9d7c9430d54bfd5b97156",
+        "7dfab707e60b201631c605dcd05ce5754333a1985fa94c06ac9444a2bc48d87c",
+        "bfe61660a42480398bbd7cbf879d241928e87b23136e906f5304da5ef4ededda",
+        "e820fe1c7c8f9413b5cfd080334807b9961c0a63ac1c6e3f107e6d1237c02be4",
+        "e9ff7994b5169b674d0dec54836f449323cbba3dc33189049b96f8aea8ca5ad8",
+        "f656bd0e68442d9a094713d57cf7e59438d2cd395360ea74badba8f7ae5aed6e"
+      ],
+      "after": "bfe61660a42480398bbd7cbf879d241928e87b23136e906f5304da5ef4ededda",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Resources/Pyannote-segmentation-LICENSE.txt": {
+      "accepted": [
+        "14d7016ad68e7394d6e6b78d96cc2ae431c905287b89674cfdf021e79e62b8ba"
+      ],
+      "after": "14d7016ad68e7394d6e6b78d96cc2ae431c905287b89674cfdf021e79e62b8ba",
+      "allow_missing": true,
+      "mode": "0644"
+    },
+    "Resources/Qwen-LICENSE.txt": {
+      "accepted": [
+        "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+      ],
+      "after": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Resources/Speaker-models-NOTICE.txt": {
+      "accepted": [
+        "13785d7cefa7327344220283399eb2f69500bed40555a117a48196b641ff206d"
+      ],
+      "after": "13785d7cefa7327344220283399eb2f69500bed40555a117a48196b641ff206d",
+      "allow_missing": true,
+      "mode": "0644"
+    },
+    "Resources/WeSpeaker-LICENSE.txt": {
+      "accepted": [
+        "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+      ],
+      "after": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "allow_missing": true,
+      "mode": "0644"
+    },
+    "Resources/Whisper-model-LICENSE.txt": {
+      "accepted": [
+        "b5d65a59060e68c4ff940e1eddfa6f94b2d68fdf58ed7f4dd57721c997e35e9d"
+      ],
+      "after": "b5d65a59060e68c4ff940e1eddfa6f94b2d68fdf58ed7f4dd57721c997e35e9d",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Resources/nlohmann-LICENSE.txt": {
+      "accepted": [
+        "86b998c792894ccb911a1cb7994f7a9652894e7a094c0b5e45be2f553f45cf14"
+      ],
+      "after": "86b998c792894ccb911a1cb7994f7a9652894e7a094c0b5e45be2f553f45cf14",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Resources/onnxruntime-LICENSE.txt": {
+      "accepted": [
+        "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c"
+      ],
+      "after": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c",
+      "allow_missing": true,
+      "mode": "0644"
+    },
+    "Resources/onnxruntime-ThirdPartyNotices.txt": {
+      "accepted": [
+        "0e07b95f3a8d6230037707c5c4a2b554d12c4cb67369669ac255635528ffcee2"
+      ],
+      "after": "0e07b95f3a8d6230037707c5c4a2b554d12c4cb67369669ac255635528ffcee2",
+      "allow_missing": true,
+      "mode": "0644"
+    },
+    "Resources/sherpa-onnx-LICENSE.txt": {
+      "accepted": [
+        "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+      ],
+      "after": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "allow_missing": true,
+      "mode": "0644"
+    },
+    "START-HERE.txt": {
+      "accepted": [
+        "2c84ec494f79edded6b0c2ecd9ece004bfb20aadc6680dc3317f07ecec457141",
+        "4228a785a13ceb3a9d20b0e232a2355660b49889ee21cc9c529eeb9f5dc202e8",
+        "69c82384c14eb8e6b184a69a2bed13156f3b83acb95118a3b8fca3fc63061adb",
+        "8772e772ac218e3a258e5a17943924dcfe8a40dfa6e6d72369780aec66d5bf4a",
+        "d5f9ba5ac0945a2d8fc99c0e08862b01ef6bec5a21bef63159ef3167bbb7f637",
+        "ffd0a0a760cc63d45b371ab3c99f52cdac401fc1af4754f86400bba13d7372b9"
+      ],
+      "after": "2c84ec494f79edded6b0c2ecd9ece004bfb20aadc6680dc3317f07ecec457141",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Sources/AppState.swift": {
+      "accepted": [
+        "7d52219e698ab25d43e22a15e5a09f3c09a53741def01f83a0671a46632b5d2c",
+        "bb16f09992df9fa69f06913b4357fb3b171a655eb58a98ed93f95e17035050c7"
+      ],
+      "after": "bb16f09992df9fa69f06913b4357fb3b171a655eb58a98ed93f95e17035050c7",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Sources/AudioRecorder.swift": {
+      "accepted": [
+        "0dd135d2a310c834a4d9489bea9dbc725592ccc46c910dd0e1b2440221c17e64"
+      ],
+      "after": "0dd135d2a310c834a4d9489bea9dbc725592ccc46c910dd0e1b2440221c17e64",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Sources/Domain.swift": {
+      "accepted": [
+        "e75c054575daafcb06c111a258aed3d3dc1e7c150d084da295d0310ee3114086"
+      ],
+      "after": "e75c054575daafcb06c111a258aed3d3dc1e7c150d084da295d0310ee3114086",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Sources/HotkeyMonitor.swift": {
+      "accepted": [
+        "00b4ef58b7daf673ecf8eb9c738f6da25e597fb380c6c7d6eeaab41fe198daf7"
+      ],
+      "after": "00b4ef58b7daf673ecf8eb9c738f6da25e597fb380c6c7d6eeaab41fe198daf7",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Sources/Interface.swift": {
+      "accepted": [
+        "0332270532f16302108c4728db6ae4625026e0fac9f60d04d82eb09f86a77f9e",
+        "6165a640fc1c8900f913b235ab09cec23cf1c6fa71d1900566eb70848fdb7605",
+        "74fec5005023d9431a155e640d87c50a0f052d69294194a6e4b5397d09ca47c7",
+        "944721516bd34d97f0761523d81665d6d87a6da7efc5d4f9de6738af0ad6e905",
+        "a5aa2fe614ed7dba82aef01d290022a5cc26ce056348ddf43cfbeebbff84bd3e",
+        "db9ba70a299c92dda28738089e5e902d86855a9bde7df258418d907f0f1b2364"
+      ],
+      "after": "a5aa2fe614ed7dba82aef01d290022a5cc26ce056348ddf43cfbeebbff84bd3e",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Sources/LocalMemory.swift": {
+      "accepted": [
+        "4702e6e48385a6e6521b27681275526031cd7a2b623326910be0c13d5a8bdf9e"
+      ],
+      "after": "4702e6e48385a6e6521b27681275526031cd7a2b623326910be0c13d5a8bdf9e",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Sources/Main.swift": {
+      "accepted": [
+        "0a58676285381c4d91ef25b39a5a91d25a7ceea8f9ee5ee429d568b21d1423ca",
+        "727cb217ed17d140bd1389faa7aae01a041f337c31db78f54301882251f22020",
+        "c9996a440fe62217dcc0fa61f7759b3287888800589169261ee97fff06e97886"
+      ],
+      "after": "0a58676285381c4d91ef25b39a5a91d25a7ceea8f9ee5ee429d568b21d1423ca",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Sources/MeetingCapture.swift": {
+      "accepted": [
+        "31772f2cdf7563b1df0f62fe393404471c293e3cb6c11e00a7504e004a06b206",
+        "44386675fef91e8203515c26da3426ef43d6a610dcc4c0bee1c27558d75af1d4",
+        "7df7c2953877c44d67c0299b8e864694fd7f1fcd396dcd205083ae5727b6a7fc"
+      ],
+      "after": "44386675fef91e8203515c26da3426ef43d6a610dcc4c0bee1c27558d75af1d4",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Sources/MeetingDetection.swift": {
+      "accepted": [
+        "6dd7de7cc41d22680fabff3b2728c423d4338addd01eecd5546a7b5cd4d35c5a",
+        "a82be166cd29f9daebb85a70d50e5ae5d33efb4281f6a8e8f87fc5fe76721ee3"
+      ],
+      "after": "6dd7de7cc41d22680fabff3b2728c423d4338addd01eecd5546a7b5cd4d35c5a",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Sources/MeetingDomain.swift": {
+      "accepted": [
+        "19e6213f1faa3553d28f50f1e90df532194e1ff014f94dd420e9ff0e51731e90",
+        "2fa604cd3ee0104000e06030f3b050913774ed7ab39ec5810a14ec103bdb8b7f",
+        "555427ad11ed498a25db28fd3eef6984144469a73566283a6b833e2a179607d0"
+      ],
+      "after": "555427ad11ed498a25db28fd3eef6984144469a73566283a6b833e2a179607d0",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Sources/MeetingInterface.swift": {
+      "accepted": [
+        "923dc935e77f4192acf64f646f846b700cb1630c1d6920277295335b9fd6b811",
+        "95052546ec6d718277dbf06362f049a57f116d7954c8c4399be6b5c4da8f4c1e",
+        "98574b4d7b22a26e4e1f608453face48e05fb57c99df18e4dfa242883300c504",
+        "a051857d4412b151ce894fbae60a5e97ba2271c96c4bd49e23a804f342960f24",
+        "d02c4c2fc0e60ab95193d55f8b7c5d70d2955940890ed73c29c00a13b6efd61e"
+      ],
+      "after": "95052546ec6d718277dbf06362f049a57f116d7954c8c4399be6b5c4da8f4c1e",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Sources/MeetingPresentation.swift": {
+      "accepted": [
+        "4daea599882e8249e8cac0059828935b88738cbd533cb866ff3199ffb9f2d275"
+      ],
+      "after": "4daea599882e8249e8cac0059828935b88738cbd533cb866ff3199ffb9f2d275",
+      "allow_missing": true,
+      "mode": "0644"
+    },
+    "Sources/MeetingPromptView.swift": {
+      "accepted": [
+        "58a9abbdc78172a34855e70ece3a652ea54db70cf9aca131f79e1f42151f3eee"
+      ],
+      "after": "58a9abbdc78172a34855e70ece3a652ea54db70cf9aca131f79e1f42151f3eee",
+      "allow_missing": true,
+      "mode": "0644"
+    },
+    "Sources/MeetingSpeakers.swift": {
+      "accepted": [
+        "6dade911b8119fb274b4bc2c35ef65d6f213d9c21142440a24659eb870dfd8d7",
+        "b8cf4b0b8edb7a66d8ed8b94bb9996707782330f75b28593d9fd4da55587b0d2"
+      ],
+      "after": "6dade911b8119fb274b4bc2c35ef65d6f213d9c21142440a24659eb870dfd8d7",
+      "allow_missing": true,
+      "mode": "0644"
+    },
+    "Sources/MeetingState.swift": {
+      "accepted": [
+        "4659dbc1c917f4273bd351e43afd09666df3bed6ecd78f76431fde2544e12a4e",
+        "8feeaf9c4560e57c22b009a06dce2d8e32306ebf1e77ea91296074a0237e345a",
+        "d1977e926d6b0ac361a93207af1448f2c20cca51fffde09967b37f4fd5fde6f5",
+        "dc8bd37e048deae1cb2a9683cd50cfe421f5d1eeaccad514e150c920aeec1717",
+        "ed6bcfde975a4e388323558df36bf59ad30696626301abf18e4e27445e4cb0a8"
+      ],
+      "after": "4659dbc1c917f4273bd351e43afd09666df3bed6ecd78f76431fde2544e12a4e",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Sources/ModelStore.swift": {
+      "accepted": [
+        "a7e09834c7ca2c693cd672129f2ecf755763d29ccf8fbc16901c7dc955d2255b"
+      ],
+      "after": "a7e09834c7ca2c693cd672129f2ecf755763d29ccf8fbc16901c7dc955d2255b",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Sources/PasteService.swift": {
+      "accepted": [
+        "db789cfa199ffd20c32ebe5cf6d243fb14cc8bd2d641a2801196fd5112ce8bca",
+        "f39b4c3b6ed74251955ecfe9d6aa23be3108b1915f139a5c5be1ad8552eb8f8a"
+      ],
+      "after": "db789cfa199ffd20c32ebe5cf6d243fb14cc8bd2d641a2801196fd5112ce8bca",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Sources/RecordingAudioSilencer.swift": {
+      "accepted": [
+        "cbee7bee3bdd4cd3d912e1652767b21c0586458f16841ab3cdc4e36fd983687e"
+      ],
+      "after": "cbee7bee3bdd4cd3d912e1652767b21c0586458f16841ab3cdc4e36fd983687e",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Sources/SpeakerDomain.swift": {
+      "accepted": [
+        "b1510d41e3f1a2b22cc7ed602aefaba6953fc9ddcc17450c1449393432012b5d"
+      ],
+      "after": "b1510d41e3f1a2b22cc7ed602aefaba6953fc9ddcc17450c1449393432012b5d",
+      "allow_missing": true,
+      "mode": "0644"
+    },
+    "Sources/SpokenCorrections.swift": {
+      "accepted": [
+        "65e02d7fb7a08f2753ff6de80be0798a0b26a4a20408598711c77fd7a6936e46"
+      ],
+      "after": "65e02d7fb7a08f2753ff6de80be0798a0b26a4a20408598711c77fd7a6936e46",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Sources/SpokenFormatting.swift": {
+      "accepted": [
+        "def824a5e2d870fe7f54de58d1174d8867d2481a56ef7dc513e6cf32682cd0d8"
+      ],
+      "after": "def824a5e2d870fe7f54de58d1174d8867d2481a56ef7dc513e6cf32682cd0d8",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Sources/SystemAudioBackend.swift": {
+      "accepted": [
+        "f4dec0cac1864f083234398dcd6f66bf1b40f89da3301668c84e56172f4a6a60"
+      ],
+      "after": "f4dec0cac1864f083234398dcd6f66bf1b40f89da3301668c84e56172f4a6a60",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Sources/TextInsertion.swift": {
+      "accepted": [
+        "2f285138eb42366907f5487c8bb7ceff2e4aa2edede6d543c86d7293359ba81c"
+      ],
+      "after": "2f285138eb42366907f5487c8bb7ceff2e4aa2edede6d543c86d7293359ba81c",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Sources/TextProcessing.swift": {
+      "accepted": [
+        "b8cc8dec92aadf5472a6d5e8c18e88c4137356df7c9781ccdac9fa6e24d14e3f"
+      ],
+      "after": "b8cc8dec92aadf5472a6d5e8c18e88c4137356df7c9781ccdac9fa6e24d14e3f",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Sources/Transcriber.swift": {
+      "accepted": [
+        "d3a9a2e90880aa066401664aac73baf8441d086ed4902121750653eb3414ba07"
+      ],
+      "after": "d3a9a2e90880aa066401664aac73baf8441d086ed4902121750653eb3414ba07",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Sources/VoiceTheme.swift": {
+      "accepted": [
+        "370728b18aa7f835d70f25c4d9d94d52b322b627ea8d124c0edd5eb25c804112"
+      ],
+      "after": "370728b18aa7f835d70f25c4d9d94d52b322b627ea8d124c0edd5eb25c804112",
+      "allow_missing": true,
+      "mode": "0644"
+    },
+    "TEST-RESULTS.md": {
+      "accepted": [
+        "2373465ea795d5937b2ba0c5cd912fb28b491279d3a62f18655f27a61d4a205b",
+        "4478f605fd310d58c843d469e116a8f9eeaa65c43140d8cff10b1e4c0e3fd53c",
+        "62b7e45a14eeb828495b575b0f00d3eea5384c728e24f302f9d634ba822e632f",
+        "85f7434a4efe6e67b68654394e74572e387d8e78cc82621eff316413e583b2ca",
+        "b78452ee21917feab91991b2b9494d65faa81c7d20573e9698f8d2beb7e47485",
+        "b93d6ad6eab79eead5261dc8aa1887b2c4a994f5115eb53e6dd2c8abca0e0d6b"
+      ],
+      "after": "62b7e45a14eeb828495b575b0f00d3eea5384c728e24f302f9d634ba822e632f",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "THIRD-PARTY-NOTICES.txt": {
+      "accepted": [
+        "0b0b56440f2ad5a3714b7cabb2d43604c47a6666c9e0934dcc41259c1460e365",
+        "9512933cc5818e3f1ccb42404018094a64e2d69f100ec9955dfbf52bdc15529b"
+      ],
+      "after": "9512933cc5818e3f1ccb42404018094a64e2d69f100ec9955dfbf52bdc15529b",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Tests/AppStateFakes.swift": {
+      "accepted": [
+        "a7e24c4af1ad71c5041a8f5d2d4899a406942e16a6f3966d592473541508eddb"
+      ],
+      "after": "a7e24c4af1ad71c5041a8f5d2d4899a406942e16a6f3966d592473541508eddb",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Tests/AppStateTests.swift": {
+      "accepted": [
+        "47fa66ab90196978613c08cf8c471302c7d3a418ef385372d0df05ff83c502fa"
+      ],
+      "after": "47fa66ab90196978613c08cf8c471302c7d3a418ef385372d0df05ff83c502fa",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Tests/AudioFakes.swift": {
+      "accepted": [
+        "ba5ccf4fe58bbbb974fa080cbae2bb36ad1a659a12a3b65ab1e68fb26c337bd7"
+      ],
+      "after": "ba5ccf4fe58bbbb974fa080cbae2bb36ad1a659a12a3b65ab1e68fb26c337bd7",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Tests/AudioMuteTests.swift": {
+      "accepted": [
+        "7fa8a34ba78eb9948ea4493c0dc2b9bd48dc6129e1c72d4155656a647335bfc8"
+      ],
+      "after": "7fa8a34ba78eb9948ea4493c0dc2b9bd48dc6129e1c72d4155656a647335bfc8",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Tests/CaptureStopHarness.swift": {
+      "accepted": [
+        "f7098598e51efd094684f856bfb78b7a2e578966b6ce98fad38e3b7838e737b7"
+      ],
+      "after": "f7098598e51efd094684f856bfb78b7a2e578966b6ce98fad38e3b7838e737b7",
+      "allow_missing": true,
+      "mode": "0644"
+    },
+    "Tests/CorrectionTests.swift": {
+      "accepted": [
+        "ec66a276d1aa6806c70f1e16baacc91797d1b1f8cad1445a764b46a0b205921d"
+      ],
+      "after": "ec66a276d1aa6806c70f1e16baacc91797d1b1f8cad1445a764b46a0b205921d",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Tests/DomainTests.swift": {
+      "accepted": [
+        "7554b9589649aafb54bad2dacaef114938e0c76609173a65cedc1a2c6472480c"
+      ],
+      "after": "7554b9589649aafb54bad2dacaef114938e0c76609173a65cedc1a2c6472480c",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Tests/Fixtures/diarizer-repair-results.json": {
+      "accepted": [
+        "94d0343bec7eceac9db1169da630b5fbf4490ad70e04df3960144ccc8ffe08bf"
+      ],
+      "after": "94d0343bec7eceac9db1169da630b5fbf4490ad70e04df3960144ccc8ffe08bf",
+      "allow_missing": true,
+      "mode": "0644"
+    },
+    "Tests/Fixtures/diarizer-smoke-results.json": {
+      "accepted": [
+        "e70fc0e47627dfe74232b5285e494a1b416eaade8285c0dcc02edcb3a5707b4a"
+      ],
+      "after": "e70fc0e47627dfe74232b5285e494a1b416eaade8285c0dcc02edcb3a5707b4a",
+      "allow_missing": true,
+      "mode": "0644"
+    },
+    "Tests/Fixtures/qwen-7b-smoke-results.json": {
+      "accepted": [
+        "de51f295f2ff522c1946b24abab3b16df4b9e22905fdf32a65c0a38723035b59"
+      ],
+      "after": "de51f295f2ff522c1946b24abab3b16df4b9e22905fdf32a65c0a38723035b59",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Tests/Fixtures/speaker-pipeline-smoke-results.json": {
+      "accepted": [
+        "cdcddbbb77936c0a36d008f4df05451d9235ea39be42cb4aa9d64b509b96674a"
+      ],
+      "after": "cdcddbbb77936c0a36d008f4df05451d9235ea39be42cb4aa9d64b509b96674a",
+      "allow_missing": true,
+      "mode": "0644"
+    },
+    "Tests/Fixtures/turbo-timed-validation.json": {
+      "accepted": [
+        "a613bf4167c8ec8044834260b364200b6fd84f47e9c40412f3bd00b25f9c7100"
+      ],
+      "after": "a613bf4167c8ec8044834260b364200b6fd84f47e9c40412f3bd00b25f9c7100",
+      "allow_missing": true,
+      "mode": "0644"
+    },
+    "Tests/FormattingTests.swift": {
+      "accepted": [
+        "c8aa35580e2e15daea0e6ca2ddf3f84199dd873b31d2dc3e5d45968ede3f2fc7"
+      ],
+      "after": "c8aa35580e2e15daea0e6ca2ddf3f84199dd873b31d2dc3e5d45968ede3f2fc7",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Tests/InstallTests.py": {
+      "accepted": [
+        "9362cf3048d8b9926ae7e6a9fc6ecc2f58027623f0175151e4ce7a14ca130b2d"
+      ],
+      "after": "9362cf3048d8b9926ae7e6a9fc6ecc2f58027623f0175151e4ce7a14ca130b2d",
+      "allow_missing": true,
+      "mode": "0755"
+    },
+    "Tests/MeetingDetectionTests.swift": {
+      "accepted": [
+        "2f425d369c6809eef340fdca6241822cf703d0dcfaac26941cd6e6c732e202bb"
+      ],
+      "after": "2f425d369c6809eef340fdca6241822cf703d0dcfaac26941cd6e6c732e202bb",
+      "allow_missing": true,
+      "mode": "0644"
+    },
+    "Tests/MeetingModelValidation.swift": {
+      "accepted": [
+        "30fce04bb17e650a3db0f75160aff72862d4564b239c8efe99fee08adb6ff3c0"
+      ],
+      "after": "30fce04bb17e650a3db0f75160aff72862d4564b239c8efe99fee08adb6ff3c0",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Tests/MeetingTests.swift": {
+      "accepted": [
+        "24b03edf1d918ef316a6cb0cd4d7dcbf9c4e3d6753dbcd367ac91a20235f6c33",
+        "61fa98a75d8189f2163c2a936e6b2ccd44a8dd65c4743b1f906d2c17bf18d9fb",
+        "aa43677cf21f8d9777d09b4aa0ab6b28557e8c051283352a791ee866de0a8894"
+      ],
+      "after": "aa43677cf21f8d9777d09b4aa0ab6b28557e8c051283352a791ee866de0a8894",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Tests/MeetingWorkspaceTests.swift": {
+      "accepted": [
+        "7d023787c8a185143edef4f51c1a269ec9e5a38caf31e80d485ebc69a378d0c2"
+      ],
+      "after": "7d023787c8a185143edef4f51c1a269ec9e5a38caf31e80d485ebc69a378d0c2",
+      "allow_missing": true,
+      "mode": "0644"
+    },
+    "Tests/SpeakerAudioTests.swift": {
+      "accepted": [
+        "8e61ba113583dd2089b3b060753f3f5a344d96609ae2572fbc782031f3188bf5"
+      ],
+      "after": "8e61ba113583dd2089b3b060753f3f5a344d96609ae2572fbc782031f3188bf5",
+      "allow_missing": true,
+      "mode": "0644"
+    },
+    "Tests/SpeakerCoordinatorTests.swift": {
+      "accepted": [
+        "0b107fb4ac75afed1a96ce527d01b922dd38bc8a4875fef9dc3e3896ec022379"
+      ],
+      "after": "0b107fb4ac75afed1a96ce527d01b922dd38bc8a4875fef9dc3e3896ec022379",
+      "allow_missing": true,
+      "mode": "0644"
+    },
+    "Tests/SpeakerDomainTests.swift": {
+      "accepted": [
+        "af09f6d6a92c9f156d568e3bbd1b4b022f4c2bbd59eb4d2d528ce6dbf948cac4"
+      ],
+      "after": "af09f6d6a92c9f156d568e3bbd1b4b022f4c2bbd59eb4d2d528ce6dbf948cac4",
+      "allow_missing": true,
+      "mode": "0644"
+    },
+    "Tests/SpeakerPipelineSmoke.swift": {
+      "accepted": [
+        "25487f4662b9fe6f414e4506365f5700612332282d88d9b767c98b24d29e6bd9"
+      ],
+      "after": "25487f4662b9fe6f414e4506365f5700612332282d88d9b767c98b24d29e6bd9",
+      "allow_missing": true,
+      "mode": "0644"
+    },
+    "Tests/SpeakerProcessTests.swift": {
+      "accepted": [
+        "40549280f85bb1ff61bb357e6b2e084f2815f2021a66d4254fa9ab29d7b87889"
+      ],
+      "after": "40549280f85bb1ff61bb357e6b2e084f2815f2021a66d4254fa9ab29d7b87889",
+      "allow_missing": true,
+      "mode": "0644"
+    },
+    "Tests/TestPaths.swift": {
+      "accepted": [
+        "dd33b86cc9b3202e482e8422fe60942b79aded99223611530a85d758053014e2"
+      ],
+      "after": "dd33b86cc9b3202e482e8422fe60942b79aded99223611530a85d758053014e2",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Tests/WorkerTests.swift": {
+      "accepted": [
+        "b69736d489aa64941174189f97e6377010849eb232a3b1815f2ad7ed3ee1e74d"
+      ],
+      "after": "b69736d489aa64941174189f97e6377010849eb232a3b1815f2ad7ed3ee1e74d",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "Tests/capture_stop_smoke.py": {
+      "accepted": [
+        "f206f2344103fa48a91eae465c0993d7ae4fd1941166b2d7cc33aa39fb87d30a"
+      ],
+      "after": "f206f2344103fa48a91eae465c0993d7ae4fd1941166b2d7cc33aa39fb87d30a",
+      "allow_missing": true,
+      "mode": "0755"
+    },
+    "Tests/diarizer_smoke.py": {
+      "accepted": [
+        "0057861cd66f9b1f72026ea270b29b489c8fecb3a07a97a7447d89e93e861988",
+        "439b0b9b9dfef62ad5cd045068cb8b72424660d141fc7d8d5b2426350abb3848"
+      ],
+      "after": "439b0b9b9dfef62ad5cd045068cb8b72424660d141fc7d8d5b2426350abb3848",
+      "allow_missing": true,
+      "mode": "0755"
+    },
+    "Tests/editor_smoke.py": {
+      "accepted": [
+        "3fce8ee0ce9e0e02d11e73bf886b4deabae4e11d55aa748fc6d27093e77e911e"
+      ],
+      "after": "3fce8ee0ce9e0e02d11e73bf886b4deabae4e11d55aa748fc6d27093e77e911e",
+      "allow_missing": false,
+      "mode": "0755"
+    },
+    "Tests/fake-diarizer.py": {
+      "accepted": [
+        "531e9f444573b0264a60239b618c2cd1e98236daa9fe4f6321d51acb6897db5d"
+      ],
+      "after": "531e9f444573b0264a60239b618c2cd1e98236daa9fe4f6321d51acb6897db5d",
+      "allow_missing": true,
+      "mode": "0755"
+    },
+    "Tests/fake-worker.py": {
+      "accepted": [
+        "8a0ba6ac8af749cde7276d8c088751cf36a21c5ce26a6aa662402d06ba0c2544"
+      ],
+      "after": "8a0ba6ac8af749cde7276d8c088751cf36a21c5ce26a6aa662402d06ba0c2544",
+      "allow_missing": false,
+      "mode": "0755"
+    },
+    "Tests/speaker_pipeline_smoke.py": {
+      "accepted": [
+        "cdcb51041fb16292a6b70db4df41e79b455643c3b70d6829c276e8009951ec78"
+      ],
+      "after": "cdcb51041fb16292a6b70db4df41e79b455643c3b70d6829c276e8009951ec78",
+      "allow_missing": true,
+      "mode": "0755"
+    },
+    "Tests/speech_smoke.py": {
+      "accepted": [
+        "d19f7ea1bc13b21f5975a19e34174a769e76cf8cbfb24936ea819e5759c9ca88"
+      ],
+      "after": "d19f7ea1bc13b21f5975a19e34174a769e76cf8cbfb24936ea819e5759c9ca88",
+      "allow_missing": false,
+      "mode": "0755"
+    },
+    "Tests/speech_timing_smoke.py": {
+      "accepted": [
+        "ef9bd52f7794d3862639ff9cbee9f06f462a8169bf4ba6cb57add3da82909ce5"
+      ],
+      "after": "ef9bd52f7794d3862639ff9cbee9f06f462a8169bf4ba6cb57add3da82909ce5",
+      "allow_missing": true,
+      "mode": "0755"
+    },
+    "build.sh": {
+      "accepted": [
+        "21185d278432397c932c51559e84190c4a225d395bdb036d05ad19ac0caf2224",
+        "3f770143c70364bce3d11fb5db7f67b1a0c89c414543ef1e9ba74afb6d6677af",
+        "50f83ba34ed4e57dc9b6b57948f4ea70a1ca8ddccfe1a6efdebe066ceb420083",
+        "87a943d826a6b0dc8d008778d9cf2def827acd1fe1d548c0a9f1c347062a6fa5"
+      ],
+      "after": "50f83ba34ed4e57dc9b6b57948f4ea70a1ca8ddccfe1a6efdebe066ceb420083",
+      "allow_missing": false,
+      "mode": "0755"
+    },
+    "docs/GITHUB.md": {
+      "accepted": [
+        "cff4960985d857d788ea31e46ee3cf754ff8f8ad719825549889f95283387485",
+        "eaeec5b455f822c56f8d0596684cb313c2e3e9f63c5091fa8cf1eeede4727d7c"
+      ],
+      "after": "eaeec5b455f822c56f8d0596684cb313c2e3e9f63c5091fa8cf1eeede4727d7c",
+      "allow_missing": true,
+      "mode": "0644"
+    },
+    "docs/TROUBLESHOOTING.md": {
+      "accepted": [
+        "101bfa7f5067f3375363729e01f051247160bc8041f9ac114a8105c31ab8f6c2"
+      ],
+      "after": "101bfa7f5067f3375363729e01f051247160bc8041f9ac114a8105c31ab8f6c2",
+      "allow_missing": true,
+      "mode": "0644"
+    },
+    "scripts/MakeIcon.swift": {
+      "accepted": [
+        "5aef6a740e11058944fb8457ff191de6b4e464e79eb512c1080aae6f96727143"
+      ],
+      "after": "5aef6a740e11058944fb8457ff191de6b4e464e79eb512c1080aae6f96727143",
+      "allow_missing": false,
+      "mode": "0644"
+    },
+    "scripts/build-diarizer.sh": {
+      "accepted": [
+        "21429e81b4f5ee04cc388d3db85a4212eb907cb49abf8c4d2efff3fbfbda0a12"
+      ],
+      "after": "21429e81b4f5ee04cc388d3db85a4212eb907cb49abf8c4d2efff3fbfbda0a12",
+      "allow_missing": true,
+      "mode": "0755"
+    },
+    "scripts/download-speaker-models.sh": {
+      "accepted": [
+        "fdd349f22e571a63d47491db1f188298be62d1fdba4ab0e457040b284a38058a"
+      ],
+      "after": "fdd349f22e571a63d47491db1f188298be62d1fdba4ab0e457040b284a38058a",
+      "allow_missing": true,
+      "mode": "0755"
+    },
+    "scripts/install-app.sh": {
+      "accepted": [
+        "2810c55ee2f60a37f421a26b37cd0c9870152baec232889d03fc9707102b9495"
+      ],
+      "after": "2810c55ee2f60a37f421a26b37cd0c9870152baec232889d03fc9707102b9495",
+      "allow_missing": true,
+      "mode": "0755"
+    },
+    "scripts/test.sh": {
+      "accepted": [
+        "d6a53f04428a70f7dd546d306985ebcbaa9d6b5ffcb4aa2c2ec0ccb5ccdb9db2",
+        "da153c3e850ba51707a1f1b75ac14d6f63ab64cb200c78cb34a632066776eb3e",
+        "ee4b586807c2e7be7df7a1ee5031e7dc621e0d2f844a125fe784d0dc93425d2e",
+        "ff6e87203b6bb21f40990eda62d8265100345313bc4783609cddc8b75df3b18f"
+      ],
+      "after": "da153c3e850ba51707a1f1b75ac14d6f63ab64cb200c78cb34a632066776eb3e",
+      "allow_missing": false,
+      "mode": "0755"
+    },
+    "setup.sh": {
+      "accepted": [
+        "1d3652e7a3b6763e20ce34d8e67c581e11e2abf2b60919c1457e1614356d80d2",
+        "395a5a3a5f7e08bda26c7beafb9d8008244b0775b520b2735a2f064a4d6b60ba",
+        "6923b6780a4c251fd2e4740786972c618d048ba3764cad7364129414ce79ed54",
+        "a81bfc35d7525ad49982dd9dcbfe4a9db963a6a0118318ae55bc052f9a08726a",
+        "ba7c3ad4fbdeb2c1ccf69dac032bc8398fcb49ee8c4e66aac103435282be7db6",
+        "c9c8152c58e77b0abf0c499140118ee297bcc62cae9b4c74ac01ae4f6b9b5c93"
+      ],
+      "after": "1d3652e7a3b6763e20ce34d8e67c581e11e2abf2b60919c1457e1614356d80d2",
+      "allow_missing": false,
+      "mode": "0755"
+    }
+  },
+  "source_roots": [
+    "Sources",
+    "Native"
+  ],
+  "version": "0.6.1"
+}

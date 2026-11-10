@@ -1,0 +1,44 @@
+# Build outputs and downloaded engine sources
+.build/
+dist/
+dist.noindex/
+build/
+*.app/
+*.dSYM/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Downloaded models, runtime libraries and installers
+*.bin
+*.gguf
+*.onnx
+*.dylib
+*.so
+*.zip
+*.tar.gz
+*.tar.bz2
+*.download
+
+# Never add real meetings, recordings or local user state to the repository
+Meetings/
+Models/
+Recordings/
+App-backups.noindex/
+*.f32
+*.wav
+*.mp3
+*.m4a
+*.mp4
+*.caf
+*.log
+.library-*/
+
+# Local credentials and signing material
+.env
+.env.*
+*.pem
+*.p12
+*.pfx
+*.mobileprovision
+*.provisionprofile

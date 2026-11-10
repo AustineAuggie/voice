@@ -1,0 +1,52 @@
+PACKAGING LOCALVOICE FOR SALE
+Research checked 6 November 2026. No store listing, payment service or paid
+Apple account has been created. This release is still a development preview.
+
+The practical first product is a native Apple silicon Mac app. Its global
+shortcut and insertion into other Mac apps are native capabilities. A Chrome
+extension would require additional development. A browser-only edition has
+narrower reach; a companion extension can talk to a separately installed native
+host. The current Swift app cannot simply be uploaded as a Chrome extension.
+https://developer.chrome.com/docs/extensions/develop/concepts/native-messaging
+
+For direct distribution, prepare a compiled app in a DMG, with Developer ID
+signing, hardened runtime configuration and Apple's notarisation. New users
+should install the app and download models in-app, without Terminal or compilers.
+The current ad-hoc source installer does not meet that product experience.
+Apple Developer Program membership is USD 99 per year; local pricing varies.
+https://developer.apple.com/macos/distribution/
+https://developer.apple.com/help/account/membership/program-enrollment/
+
+Licence review:
+- LocalVoice's current source LICENSE is MIT. It permits charging for copies,
+  but also grants recipients reuse and redistribution rights. Do not assume
+  that charging makes this existing MIT release proprietary. Decide the terms
+  for your original future code before a public commercial release.
+- whisper.cpp, llama.cpp and nlohmann/json use MIT licences.
+- OpenAI Whisper code and model weights use MIT.
+- The selected Qwen2.5-7B-Instruct-GGUF uses Apache License 2.0. This conclusion
+  concerns this exact 7B model, not every Qwen model.
+- These licences permit commercial use subject to their conditions. Retain the
+  complete applicable copyright, licence and notice files in distributions.
+  Retain any additional notices required by dependencies in the final binary.
+- Engine and model names do not grant permission to imply their authors endorse
+  the product. Check the intended product name separately before launch.
+https://github.com/openai/whisper
+https://huggingface.co/Qwen/Qwen2.5-7B-Instruct-GGUF
+https://www.apache.org/licenses/LICENSE-2.0
+
+Suggested first release steps:
+1. Verify this update on the developer's Mac, then test with 5-10 willing friends
+   on supported Macs. Cover permissions, clean installation, cancellation,
+   reopening, mode switching, real editors, battery use and memory pressure.
+2. Replace source setup with a signed and notarised app installer, resumable
+   in-app model installation, clear disk/RAM requirements and an uninstall path.
+3. Provide a short privacy explanation, support contact, update process and
+   purchase/refund terms appropriate to where it is sold.
+4. Choose payment and licensing terms, then release a small paid version after
+   the reliability checks pass. A one-off purchase is compatible with local
+   operation: there is no per-minute cloud transcription bill. Distribution,
+   support, payment processing and ongoing development can still cost money.
+
+The downloaded AI models remain several GB even if the app installer is small.
+No sales forecast or guarantee of performance is implied by technical feasibility.

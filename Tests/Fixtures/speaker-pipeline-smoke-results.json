@@ -1,0 +1,88 @@
+{
+  "diarizerSpanCount": 4,
+  "inputSeconds": 16,
+  "platform": "Linux x86_64 CPU; no macOS capture/UI validation",
+  "speakerIDs": [
+    1,
+    2
+  ],
+  "transcriptCharactersPreserved": true,
+  "turns": [
+    {
+      "end": 1.49,
+      "id": "00000000-0000-0000-0000-000000000001-W0",
+      "start": 0,
+      "text": "a pencil with",
+      "track": "microphone"
+    },
+    {
+      "end": 3.26,
+      "id": "00000000-0000-0000-0000-000000000001-W3",
+      "speaker": 1,
+      "start": 1.49,
+      "text": "black lead writes",
+      "track": "microphone"
+    },
+    {
+      "end": 4.45,
+      "id": "00000000-0000-0000-0000-000000000001-W6",
+      "start": 3.26,
+      "text": "best the",
+      "track": "microphone"
+    },
+    {
+      "end": 6.36,
+      "id": "00000000-0000-0000-0000-000000000001-W8",
+      "speaker": 1,
+      "start": 4.45,
+      "text": "lamp shone with a steady",
+      "track": "microphone"
+    },
+    {
+      "end": 9.37,
+      "id": "00000000-0000-0000-0000-000000000001-W13",
+      "start": 6.36,
+      "text": "green flame clothes and",
+      "track": "microphone"
+    },
+    {
+      "end": 11.43,
+      "id": "00000000-0000-0000-0000-000000000001-W17",
+      "speaker": 2,
+      "start": 9.37,
+      "text": "lodging are free to new men",
+      "track": "microphone"
+    },
+    {
+      "end": 12.24,
+      "id": "00000000-0000-0000-0000-000000000001-W23",
+      "start": 11.43,
+      "text": "the",
+      "track": "microphone"
+    },
+    {
+      "end": 14.41,
+      "id": "00000000-0000-0000-0000-000000000001-W24",
+      "speaker": 2,
+      "start": 12.24,
+      "text": "glow deepened in the eyes",
+      "track": "microphone"
+    },
+    {
+      "end": 16,
+      "id": "00000000-0000-0000-0000-000000000001-W29",
+      "start": 14.41,
+      "text": "of the sweet girl",
+      "track": "microphone"
+    }
+  ],
+  "wordCount": 33,
+  "fixture": "1-two-speakers-en.wav",
+  "fixture_sha256": "f1c877dc01595e28be7147bf2fe38e5268147a868bf3fdb5c37b97f5940e21f3",
+  "speech_model": "ggml-large-v3-turbo.bin",
+  "diarizer_seconds": 1.419,
+  "speech_seconds": 16.383,
+  "note": "Pipeline integration check only. Speaker count agreement is not a diarization error-rate benchmark.",
+  "invalid_timing_word_count": 2,
+  "unassigned_turn_count": 5
+}

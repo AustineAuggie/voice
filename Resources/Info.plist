@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>Voice</string>
+	<key>CFBundleName</key>
+	<string>Voice</string>
+	<key>CFBundleExecutable</key>
+	<string>LocalVoice</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.sunday.localvoice</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.6.1</string>
+	<key>CFBundleVersion</key>
+	<string>12</string>
+	<key>CFBundleIconFile</key>
+	<string>AppIcon</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>13.0</string>
+	<key>LSUIElement</key>
+	<false/>
+	<key>NSHighResolutionCapable</key>
+	<true/>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Voice records dictation while you hold your shortcut, or meeting audio after you press Start meeting notes. Audio is processed on this Mac.</string>
+	<key>NSAudioCaptureUsageDescription</key>
+	<string>Voice captures Mac audio only after you start online meeting notes. No screen video is saved.</string>
+</dict>
+</plist>
