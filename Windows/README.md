@@ -30,7 +30,7 @@ Use **Ctrl+Alt+Space** to start and stop dictation, or use the Dictation page. C
 
 Fast mode skips the local editor. Clean mode uses the optional editor model to improve punctuation and resolve explicit self-corrections. Add preferred names and terms in Dictionary. Corrections and model outputs can still be wrong; review important text.
 
-Notetaker records an online meeting using microphone plus system audio, or an in-room meeting using the microphone. Recording only begins after you choose Start. Meeting detection is a heuristic and can miss a call; manual Start remains available. System audio can include other applications, so pause unrelated media before recording. Meeting capture does not mute call audio.
+Notetaker records an online meeting using microphone plus system audio, or an in-room meeting using the microphone. Recording only begins after you choose Start. When enabled, meeting suggestions appear in a small desktop prompt even while Voice is minimised. Meeting detection is a heuristic and can miss a call; manual Start remains available. System audio can include other applications, so pause unrelated media before recording. Meeting capture does not mute call audio.
 
 Speaker numbering is per meeting and does not have a fixed three-person limit. It is an estimate, not a way to identify real names. Similar voices, brief turns, overlapping speech and approximate word timing can result in incorrect or unclear labels. The original transcript and retained audio provide a way to review the result.
 

@@ -23,6 +23,7 @@ public sealed class VoiceViewModel : Bindable
     private readonly AudioDucker ducker = new();
     private readonly MeetingDetector detector = new();
     private readonly PillWindow pill = new();
+    private readonly MeetingPromptWindow meetingPrompt = new();
     private readonly Dispatcher dispatcher = WpfApplication.Current.Dispatcher;
     private VoiceSettings settings = new();
     private List<VocabularyEntry> vocabulary = [];
@@ -57,7 +58,16 @@ public sealed class VoiceViewModel : Bindable
         CopyHistoryCommand = new ActionCommand(p => Run(() => { if (p is string text && text.Length > 0) WpfClipboard.SetText(text); return Task.CompletedTask; }));
         OpenDataFolderCommand = Command(() => { Process.Start(new ProcessStartInfo("explorer.exe", paths.Root) { UseShellExecute = true }); return Task.CompletedTask; });
         OpenMicrophoneSettingsCommand = Command(() => { Process.Start(new ProcessStartInfo("ms-settings:privacy-microphone") { UseShellExecute = true }); return Task.CompletedTask; });
-        AcceptMeetingPromptCommand = Command(async () => { MeetingOnlineMode = true; DismissPrompt(); await StartMeetingAsync(); });
+        AcceptMeetingPromptCommand = Command(async () =>
+        {
+            MeetingOnlineMode = true; DismissPrompt();
+            // Only the user's explicit Start click brings Voice forward. Setup
+            // or capture errors then stay visible even if Voice was minimised.
+            var main = WpfApplication.Current.MainWindow;
+            if (main.WindowState == WindowState.Minimized) main.WindowState = WindowState.Normal;
+            main.Show(); main.Activate();
+            await StartMeetingAsync();
+        });
         DismissMeetingPromptCommand = Command(() => { DismissPrompt(); return Task.CompletedTask; });
         engine.StatusChanged += text =>
         {
@@ -103,7 +113,7 @@ public sealed class VoiceViewModel : Bindable
     public int SelectedSectionIndex { get => selectedSectionIndex; set { try { SaveSelectedMeeting(); Set(ref selectedSectionIndex, value); } catch (Exception e) { ShowError(e); } } }
     public int ModeIndex { get => settings.CleanMode ? 1 : 0; set { settings.CleanMode = value == 1; Changed(); SaveSettings(); } }
     public bool MuteDuringDictation { get => settings.MuteWhileDictating; set { settings.MuteWhileDictating = value; Changed(); SaveSettings(); } }
-    public bool SuggestMeetings { get => settings.SuggestMeetings; set { settings.SuggestMeetings = value; detector.Enabled = value; Changed(); SaveSettings(); } }
+    public bool SuggestMeetings { get => settings.SuggestMeetings; set { settings.SuggestMeetings = value; detector.Enabled = value; if (!value) DismissPrompt(); Changed(); SaveSettings(); } }
     public bool KeepAudio { get => settings.KeepMeetingAudio; set { settings.KeepMeetingAudio = value; Changed(); SaveSettings(); } }
     public bool AnalyzeSpeakers { get => settings.AnalyzeSpeakers; set { settings.AnalyzeSpeakers = value; Changed(); SaveSettings(); } }
     public bool GenerateSummary { get => settings.GenerateSummary; set { settings.GenerateSummary = value; Changed(); SaveSettings(); } }
@@ -167,7 +177,11 @@ public sealed class VoiceViewModel : Bindable
             detector.Enabled = settings.SuggestMeetings;
             detector.Suggested += value => dispatcher.BeginInvoke(() =>
             {
-                if (!IsBusy && settings.SuggestMeetings) { suggestion = value; Changed(nameof(HasMeetingPrompt)); Changed(nameof(MeetingPromptText)); }
+                if (!shuttingDown && !IsBusy && settings.SuggestMeetings && suggestion == null)
+                {
+                    suggestion = value; Changed(nameof(HasMeetingPrompt)); Changed(nameof(MeetingPromptText));
+                    meetingPrompt.ShowSuggestion(this);
+                }
             });
             detector.Start();
             if (!models.HasSpeech(settings.SpeechModelId)) { SelectedSectionIndex = 4; ShowStatus("Download your speech model", "Choose Download speech to get started. Audio processing stays on this PC."); }
@@ -453,6 +467,7 @@ public sealed class VoiceViewModel : Bindable
     }
     private void DismissPrompt()
     {
+        meetingPrompt.HideSuggestion();
         if (suggestion != null) detector.Dismiss(suggestion.Key);
         suggestion = null; Changed(nameof(HasMeetingPrompt)); Changed(nameof(MeetingPromptText));
     }
@@ -484,6 +499,6 @@ public sealed class VoiceViewModel : Bindable
         }
         catch { shuttingDown = false; throw; } // Keep the app usable if saving needs a retry.
         try { await engine.DisposeAsync(); }
-        finally { ducker.Dispose(); hotkey.Dispose(); detector.Dispose(); pill.Close(); }
+        finally { ducker.Dispose(); hotkey.Dispose(); detector.Dispose(); meetingPrompt.Close(); pill.Close(); }
     }
 }

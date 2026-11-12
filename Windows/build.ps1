@@ -22,10 +22,17 @@ $archive = Join-Path $OutputDirectory ($name + '.zip')
 if (Test-Path -LiteralPath $archive) { throw "Refusing to replace an existing package: $archive. Use a fresh OutputDirectory." }
 function Invoke-Checked([scriptblock]$Command) { & $Command; if ($LASTEXITCODE -ne 0) { throw "Build command failed with exit code $LASTEXITCODE." } }
 function Invoke-TimedProgram([string]$File, [string]$Arguments, [int]$Seconds = 60) {
-    $process = Start-Process -FilePath $File -ArgumentList $Arguments -PassThru
-    if (!$process.WaitForExit($Seconds * 1000)) { $process.Kill($true); throw "Startup check timed out: $File" }
-    $process.Refresh()
-    if ($process.ExitCode -ne 0) { throw "Startup check failed with exit $($process.ExitCode): $File" }
+    $log = Join-Path ([IO.Path]::GetTempPath()) ('Voice-startup-' + [Guid]::NewGuid().ToString('N'))
+    try {
+        $process = Start-Process -FilePath $File -ArgumentList $Arguments -PassThru -RedirectStandardOutput "$log.out" -RedirectStandardError "$log.err"
+        if (!$process.WaitForExit($Seconds * 1000)) { $process.Kill($true); throw "Startup check timed out: $File" }
+        $process.Refresh()
+        if ($process.ExitCode -ne 0) { throw "Startup check failed with exit $($process.ExitCode): $File" }
+    } finally {
+        foreach ($path in @("$log.out", "$log.err")) {
+            if (Test-Path -LiteralPath $path) { Get-Content -LiteralPath $path; Remove-Item -LiteralPath $path -Force }
+        }
+    }
 }
 try {
     New-Item -ItemType Directory -Path $appRoot -Force | Out-Null
@@ -50,7 +57,7 @@ try {
     $previewDirectory = Join-Path $OutputDirectory 'ui-preview'
     New-Item -ItemType Directory -Path $previewDirectory -Force | Out-Null
     Invoke-TimedProgram (Join-Path $appRoot 'Voice.exe') ("--render-preview `"$previewDirectory`"") 60
-    if (@(Get-ChildItem -LiteralPath $previewDirectory -Filter '*.png' -File).Count -lt 5) { throw 'UI preview did not render all five review images.' }
+    if (@(Get-ChildItem -LiteralPath $previewDirectory -Filter '*.png' -File).Count -lt 6) { throw 'UI preview did not render all six review images.' }
     Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'install.ps1'), (Join-Path $PSScriptRoot 'install.cmd') -Destination $appRoot
     Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'README.md') -Destination (Join-Path $appRoot 'README-Windows.md')
     Copy-Item -LiteralPath (Join-Path $root 'LICENSE'), (Join-Path $root 'THIRD-PARTY-NOTICES.txt') -Destination $appRoot

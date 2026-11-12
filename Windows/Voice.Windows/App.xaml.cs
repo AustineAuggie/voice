@@ -33,6 +33,9 @@ public partial class App : Application
                 // workers, model downloads, or a persistent user-data store.
                 var window = new MainWindow();
                 window.ApplyTemplate();
+                var meetingPrompt = new MeetingPromptWindow();
+                meetingPrompt.ApplyTemplate();
+                meetingPrompt.Close();
                 foreach (var engine in new[] { "localvoice-speech.exe", "localvoice-editor.exe", "localvoice-diarizer.exe" })
                     if (!File.Exists(Path.Combine(AppContext.BaseDirectory, "engines", engine)))
                         throw new FileNotFoundException("A required packaged engine is missing.", engine);
@@ -103,6 +106,16 @@ public partial class App : Application
             using var file = File.Create(Path.Combine(destination, pages[section] + ".png"));
             encoder.Save(file);
         }
+        var prompt = new MeetingPromptWindow();
+        prompt.ShowSuggestion(new { MeetingPromptText = "Meeting detected in demo call. Start notes?" });
+        prompt.UpdateLayout();
+        await prompt.Dispatcher.InvokeAsync(() => { }, DispatcherPriority.Render);
+        var promptVisual = (FrameworkElement)prompt.Content;
+        var promptImage = new RenderTargetBitmap((int)Math.Ceiling(promptVisual.ActualWidth), (int)Math.Ceiling(promptVisual.ActualHeight), 96, 96, PixelFormats.Pbgra32);
+        promptImage.Render(promptVisual);
+        var promptEncoder = new PngBitmapEncoder(); promptEncoder.Frames.Add(BitmapFrame.Create(promptImage));
+        using (var promptFile = File.Create(Path.Combine(destination, "meeting-prompt.png"))) promptEncoder.Save(promptFile);
+        prompt.Close();
         window.Close();
     }
 
