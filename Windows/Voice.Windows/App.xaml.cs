@@ -81,6 +81,7 @@ public partial class App : Application
         };
         var window = new MainWindow { Width = 1280, Height = 850, ShowActivated = false };
         window.Show();
+        await window.Dispatcher.InvokeAsync(() => { }, DispatcherPriority.ContextIdle);
         var pages = new[] { "dictation", "notetaker", "dictionary", "history", "settings" };
         for (var section = 0; section < pages.Length; section++)
         {
@@ -97,8 +98,11 @@ public partial class App : Application
                 Meetings = new List<PreviewMeeting> { previewMeeting }, SelectedMeeting = previewMeeting,
                 History = new List<object>()
             };
+            // Wait below Loaded/DataBind/Render: the first page otherwise can
+            // still contain fallback text when RenderTargetBitmap runs.
+            await window.Dispatcher.InvokeAsync(() => { }, DispatcherPriority.ContextIdle);
             window.UpdateLayout();
-            await window.Dispatcher.InvokeAsync(() => { }, DispatcherPriority.Render);
+            await window.Dispatcher.InvokeAsync(() => { }, DispatcherPriority.ContextIdle);
             var visual = (FrameworkElement)window.Content;
             var image = new RenderTargetBitmap((int)Math.Ceiling(visual.ActualWidth), (int)Math.Ceiling(visual.ActualHeight), 96, 96, PixelFormats.Pbgra32);
             image.Render(visual);
@@ -108,8 +112,9 @@ public partial class App : Application
         }
         var prompt = new MeetingPromptWindow();
         prompt.ShowSuggestion(new { MeetingPromptText = "Meeting detected in demo call. Start notes?" });
+        await prompt.Dispatcher.InvokeAsync(() => { }, DispatcherPriority.ContextIdle);
         prompt.UpdateLayout();
-        await prompt.Dispatcher.InvokeAsync(() => { }, DispatcherPriority.Render);
+        await prompt.Dispatcher.InvokeAsync(() => { }, DispatcherPriority.ContextIdle);
         var promptVisual = (FrameworkElement)prompt.Content;
         var promptImage = new RenderTargetBitmap((int)Math.Ceiling(promptVisual.ActualWidth), (int)Math.Ceiling(promptVisual.ActualHeight), 96, 96, PixelFormats.Pbgra32);
         promptImage.Render(promptVisual);
