@@ -14,6 +14,11 @@ public partial class MainWindow : Window
     public MainWindow(object? model = null)
     {
         InitializeComponent();
+        var available = SystemParameters.WorkArea;
+        MinWidth = Math.Min(MinWidth, available.Width);
+        MinHeight = Math.Min(MinHeight, available.Height);
+        Width = Math.Min(Width, available.Width);
+        Height = Math.Min(Height, available.Height);
         if (model is not null) DataContext = model;
         Closing += OnClosing;
     }

@@ -31,6 +31,7 @@ function Get-Verified([string]$Url, [string]$Path, [string]$Expected) {
                 '--connect-timeout', '20', '--max-time', '180', '--output', $temporary, $Url)
             if (-not (Test-Hash $temporary $Expected)) { throw "Downloaded engine archive failed SHA-256 verification: $Url" }
             Move-Item -LiteralPath $temporary -Destination $Path -Force
+            Write-Host "Speaker archive downloaded and SHA-256 verified."
             return
         } catch {
             if ($attempt -eq 3) { throw }
@@ -49,6 +50,28 @@ function Get-Engine([string]$Name, [string]$Url, [string]$Tag, [string]$Commit) 
     return $directory
 }
 
+# Official Visual Studio 2022 MT build, pinned by release asset SHA-256. No
+# account or hosted inference is used. DLLs are placed beside the worker EXE.
+$sdkName = 'sherpa-onnx-v2.0.1-win-x64-shared-MT-Release-no-tts-lib'
+$archive = Join-Path $CacheDirectory "$sdkName.tar.bz2"
+Get-Verified "https://github.com/k2-fsa/sherpa-onnx/releases/download/v2.0.1/$sdkName.tar.bz2" $archive '21da6a8b92d63ca02ad41dbfc120012343aaaec2e5e02b14819c6b4f38004509'
+Write-Host 'Extracting the verified speaker archive.'
+Invoke-Checked 'tar.exe' @('-xjf', $archive, '-C', $CacheDirectory)
+Write-Host 'Speaker archive extracted.'
+$sdkLib = Join-Path $CacheDirectory "$sdkName/lib"
+$libraries = @{
+    'sherpa-onnx-c-api.dll' = 'ee2af9f49b8fc5dae135ad20c0b955cbab90d17b79cc1ad0db91e03b24962f68'
+    'sherpa-onnx-c-api.lib' = 'edf4b780d0ab4f0320d210f9cfc7e96e01d9b0dbee7234746f6cb6b422065997'
+    'onnxruntime.dll' = '7f66f939a881baf4f46a2216496798edf4a1429878b646d12674aa62f27d8a25'
+    'onnxruntime_providers_shared.dll' = '551d0e1fe4c227d8542314ba718d52f4379e0c7bfe729a37c59833a884e27b4d'
+}
+foreach ($name in $libraries.Keys) {
+    $library = Join-Path $sdkLib $name
+    if (-not (Test-Hash $library $libraries[$name])) { throw "Speaker library verification failed: $name" }
+    if ($name.EndsWith('.dll')) { Copy-Item -LiteralPath $library -Destination $OutputDirectory -Force }
+}
+
+Write-Host 'Speaker runtime files verified. Building speech and editor engines.'
 $SpeechSource = Get-Engine 'whisper-v1.7.6' 'https://github.com/ggml-org/whisper.cpp.git' 'v1.7.6' 'a8d002cfd879315632a579e73f0148d06959de36'
 $EditorSource = Get-Engine 'llama-b5046' 'https://github.com/ggml-org/llama.cpp.git' 'b5046' '74d4f5b041ad837153b0e90fc864b8290e01d8d5'
 $hasher = [Security.Cryptography.SHA256]::Create()
@@ -70,24 +93,6 @@ foreach ($engine in @('speech', 'editor')) {
     Copy-Item -LiteralPath (Join-Path $build "$Configuration/localvoice-$engine.exe") -Destination $OutputDirectory -Force
 }
 
-# Official Visual Studio 2022 MT build, pinned by release asset SHA-256. No
-# account or hosted inference is used. DLLs are placed beside the worker EXE.
-$sdkName = 'sherpa-onnx-v2.0.1-win-x64-shared-MT-Release-no-tts-lib'
-$archive = Join-Path $CacheDirectory "$sdkName.tar.bz2"
-Get-Verified "https://github.com/k2-fsa/sherpa-onnx/releases/download/v2.0.1/$sdkName.tar.bz2" $archive '21da6a8b92d63ca02ad41dbfc120012343aaaec2e5e02b14819c6b4f38004509'
-Invoke-Checked 'tar.exe' @('-xjf', $archive, '-C', $CacheDirectory)
-$sdkLib = Join-Path $CacheDirectory "$sdkName/lib"
-$libraries = @{
-    'sherpa-onnx-c-api.dll' = 'ee2af9f49b8fc5dae135ad20c0b955cbab90d17b79cc1ad0db91e03b24962f68'
-    'sherpa-onnx-c-api.lib' = 'edf4b780d0ab4f0320d210f9cfc7e96e01d9b0dbee7234746f6cb6b422065997'
-    'onnxruntime.dll' = '7f66f939a881baf4f46a2216496798edf4a1429878b646d12674aa62f27d8a25'
-    'onnxruntime_providers_shared.dll' = '551d0e1fe4c227d8542314ba718d52f4379e0c7bfe729a37c59833a884e27b4d'
-}
-foreach ($name in $libraries.Keys) {
-    $library = Join-Path $sdkLib $name
-    if (-not (Test-Hash $library $libraries[$name])) { throw "Speaker library verification failed: $name" }
-    if ($name.EndsWith('.dll')) { Copy-Item -LiteralPath $library -Destination $OutputDirectory -Force }
-}
 $diarizerBuild = Join-Path $CacheDirectory "build-diarizer-$sourceKey"
 Invoke-Checked 'cmake' @('-S', (Join-Path $ProjectRoot 'Native/windows'), '-B', $diarizerBuild,
     '-G', 'Visual Studio 17 2022', '-A', 'x64', "-DSHERPA_LIBRARY_DIR=$sdkLib")
