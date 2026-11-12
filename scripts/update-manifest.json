@@ -17,9 +17,10 @@
     },
     ".gitignore": {
       "accepted": [
+        "9c260dd94f07f87a963f2f31419d3a854ab5171542392ecf24f25ae4d58aa695",
         "ee60125822f267d57feeddf167325e8afb381aa771c5f752e15a960a8df77740"
       ],
-      "after": "ee60125822f267d57feeddf167325e8afb381aa771c5f752e15a960a8df77740",
+      "after": "9c260dd94f07f87a963f2f31419d3a854ab5171542392ecf24f25ae4d58aa695",
       "allow_missing": true,
       "mode": "0644"
     },
@@ -34,9 +35,10 @@
     "DISTRIBUTION.md": {
       "accepted": [
         "ba8e02a7d11d95d43f6b48d39a9cf1b9f22884240ac57b69c3a62d2dfef99f68",
-        "de34d0c4c887baab80f704ae481cbdddd32a78dfdec7af115f08afbceadcb221"
+        "de34d0c4c887baab80f704ae481cbdddd32a78dfdec7af115f08afbceadcb221",
+        "e251e83af39d5ad1a718b7449607e4e0c92c326d148c165cb4a32c13ba93f75a"
       ],
-      "after": "de34d0c4c887baab80f704ae481cbdddd32a78dfdec7af115f08afbceadcb221",
+      "after": "e251e83af39d5ad1a718b7449607e4e0c92c326d148c165cb4a32c13ba93f75a",
       "allow_missing": true,
       "mode": "0644"
     },
@@ -66,18 +68,20 @@
     },
     "Native/diarize.cpp": {
       "accepted": [
+        "175c446cb78815ec851ee62ebd759c34019434f29b74f07fc67b1534b2b93e93",
         "593c78c508b4700df25d39030869e768705e808546e890814b95ba4ade8782ab",
         "6d98d5aa1cfaf2bf208996b116aafc8f0f4d6ac72bf723cba0a88ef83cb5967d"
       ],
-      "after": "593c78c508b4700df25d39030869e768705e808546e890814b95ba4ade8782ab",
+      "after": "175c446cb78815ec851ee62ebd759c34019434f29b74f07fc67b1534b2b93e93",
       "allow_missing": true,
       "mode": "0644"
     },
     "Native/editor.cpp": {
       "accepted": [
+        "33a05a471cd7665f813d5b94d0986a2b1ff595ded3b4172479da6e8ebadf67bf",
         "5a3e6445943369ab4feaea02a2a699b4bb549900818d1aebd3945d868ac1211e"
       ],
-      "after": "5a3e6445943369ab4feaea02a2a699b4bb549900818d1aebd3945d868ac1211e",
+      "after": "33a05a471cd7665f813d5b94d0986a2b1ff595ded3b4172479da6e8ebadf67bf",
       "allow_missing": false,
       "mode": "0644"
     },
@@ -92,15 +96,17 @@
     "Native/speech.cpp": {
       "accepted": [
         "61bf0f4aa4a36ec60fbcac8d5a3b26ef3a6f9c13df4a28eb3eedfaceac058dd1",
-        "ccfbc44f737070898473105ffc5dff390bdfaa4d5387eecc95ba3f94f3b07635"
+        "ccfbc44f737070898473105ffc5dff390bdfaa4d5387eecc95ba3f94f3b07635",
+        "d5eb399348fe99131cccc87c98df946cefbbdca389cfe05afcd95a1d1805af67"
       ],
-      "after": "61bf0f4aa4a36ec60fbcac8d5a3b26ef3a6f9c13df4a28eb3eedfaceac058dd1",
+      "after": "d5eb399348fe99131cccc87c98df946cefbbdca389cfe05afcd95a1d1805af67",
       "allow_missing": false,
       "mode": "0644"
     },
     "README.md": {
       "accepted": [
         "1e00e800a0877a1b233e7ca50dc5032387867590d5ac957544b14ccc0ea66aa6",
+        "45a1c806290f90e104a499f9054da6aa586fb02b3cd27e5c76cba119afb5878d",
         "4ecbc2e9014d528b3189b0d383984dc5e830e64bc9148c01e969f556d2cac90a",
         "7711be835c930d66564753ec79e5b5f1b96f6ff6e903399ae508aa45b456f414",
         "83b8b34ec36e1394b70aff72df810297244a66ea3a7df5391906a5c5f64965dd",
@@ -109,7 +115,7 @@
         "b710ca9917fe6dff3a4f299afbf2804d360ee8ae0a285c4aeaa9b913b60c484b",
         "da8ef6673639c0de4b591ac361f9b78e9a85fb404b7913e1fa924677f1290ba1"
       ],
-      "after": "b710ca9917fe6dff3a4f299afbf2804d360ee8ae0a285c4aeaa9b913b60c484b",
+      "after": "45a1c806290f90e104a499f9054da6aa586fb02b3cd27e5c76cba119afb5878d",
       "allow_missing": false,
       "mode": "0644"
     },
@@ -745,11 +751,12 @@
     },
     "docs/GITHUB.md": {
       "accepted": [
+        "03c11877886fcb078ac870db40f4fad79cc7d6a8cb16c8e51b5e5830df0cb86a",
         "2d1d25ffbca0f29538e3d7717d62655ad8f77debc112c54b355ad8c2d1be717d",
         "cff4960985d857d788ea31e46ee3cf754ff8f8ad719825549889f95283387485",
         "eaeec5b455f822c56f8d0596684cb313c2e3e9f63c5091fa8cf1eeede4727d7c"
       ],
-      "after": "2d1d25ffbca0f29538e3d7717d62655ad8f77debc112c54b355ad8c2d1be717d",
+      "after": "03c11877886fcb078ac870db40f4fad79cc7d6a8cb16c8e51b5e5830df0cb86a",
       "allow_missing": true,
       "mode": "0644"
     },

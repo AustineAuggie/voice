@@ -1,6 +1,7 @@
 // LocalVoice offline diarization worker. Uses the pinned sherpa-onnx C API.
 // Input: mono 16 kHz little-endian float32 PCM. No network access is performed.
 #include "sherpa-c-api.h"
+#include "windows/WindowsEntry.hpp"
 #include <algorithm>
 #include <cerrno>
 #include <cmath>
@@ -8,6 +9,7 @@
 #include <cstring>
 #include <fcntl.h>
 #include <fstream>
+#include <filesystem>
 #include <iomanip>
 #include <iostream>
 #include <limits>
@@ -16,9 +18,13 @@
 #include <sstream>
 #include <stdexcept>
 #include <string>
+#ifdef _WIN32
+#include <sddl.h>
+#else
 #include <sys/mman.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#endif
 
 namespace {
 // Stable, non-sensitive markers let the app explain a failure without copying
@@ -27,6 +33,9 @@ struct SpeakerError : std::runtime_error {
     const char *code;
     SpeakerError(const char *code, const char *message) : std::runtime_error(message), code(code) {}
 };
+#ifdef _WIN32
+#include "windows/DiarizerIO.hpp"
+#else
 struct Audio {
     int fd = -1;
     void *mapped = MAP_FAILED;
@@ -67,6 +76,7 @@ struct Audio {
         return peak > 0;
     }
 };
+#endif
 int number(const std::string &text) {
     try {
         size_t used = 0; const int result = std::stoi(text, &used);
@@ -78,6 +88,7 @@ int number(const std::string &text) {
         throw SpeakerError("invalid-options", "Integer option is out of range.");
     }
 }
+#ifndef _WIN32
 void writeResult(const std::string &path, const std::string &json) {
     const std::string temporary = path + ".pending-" + std::to_string(getpid());
     int fd = open(temporary.c_str(), O_WRONLY | O_CREAT | O_EXCL | O_NOFOLLOW, 0600);
@@ -95,13 +106,14 @@ void writeResult(const std::string &path, const std::string &json) {
         if (rename(temporary.c_str(), path.c_str())) throw SpeakerError("write-result", "Could not finish speaker result file.");
     } catch (...) { if (fd >= 0) close(fd); unlink(temporary.c_str()); throw; }
 }
+#endif
 int32_t progress(int32_t done, int32_t total, void *) {
     if (done == total || done % 25 == 0) std::cerr << "speaker-progress " << done << " " << total << '\n';
     return 0;
 }
 }
 
-int main(int argc, char **argv) {
+int VOICE_MAIN(int argc, char **argv) {
     try {
         std::map<std::string, std::string> options;
         for (int i = 1; i < argc; i += 2) {
@@ -122,7 +134,7 @@ int main(int argc, char **argv) {
             writeResult(options["--output"], "{\"sample_rate\":16000,\"num_speakers\":0,\"segments\":[]}\n"); return 0;
         }
         for (const auto *key : {"--segmentation", "--embedding"})
-            if (!std::ifstream(options[key], std::ios::binary).good()) throw SpeakerError("missing-models", "Speaker models are missing; run LocalVoice setup again.");
+            if (!std::ifstream(std::filesystem::u8path(options[key]), std::ios::binary).good()) throw SpeakerError("missing-models", "Speaker models are missing; run Voice model setup again.");
         SherpaOnnxOfflineSpeakerDiarizationConfig config{};
         config.segmentation.pyannote.model = options["--segmentation"].c_str();
         config.segmentation.pyannote.window_shift_ratio = 0.1f;
@@ -176,3 +188,4 @@ int main(int argc, char **argv) {
         std::cerr << "LocalVoice speaker analysis: " << error.what() << '\n'; return 1;
     }
 }
+VOICE_WINDOWS_ENTRY

@@ -1,8 +1,15 @@
-# Voice 0.6.1
+# Voice
 
 **[Download, install and share Voice](DISTRIBUTION.md)** · Public repository: https://github.com/AustineAuggie/voice
 
-A local Mac workspace for dictation and meeting notes. Formerly LocalVoice. Apple silicon, macOS 13 or newer.
+A local workspace for dictation and meeting notes. Formerly LocalVoice.
+
+| Computer | Download and installation |
+| --- | --- |
+| Windows 11, Intel/AMD 64-bit | [Windows preview and guide](Windows/README.md). Prebuilt app: extract the ZIP and open Voice.exe. |
+| Apple silicon Mac, macOS 13+ | [Mac 0.6.1 source installer](https://github.com/AustineAuggie/voice/releases/tag/v0.6.1). Follow the Mac instructions below. |
+
+Windows ARM, 32-bit Windows, Intel Macs, Linux desktops and iPhones are not included. The Windows edition uses its own native interface and audio controls; it does not run the Mac app in an emulator. The remaining instructions on this page describe the Mac edition. See the Windows guide for Windows features, requirements and limitations.
 
 **Local app, downloadable source.** Voice runs transcription, text editing, meeting summaries and speaker analysis on the user's Mac. GitHub can host this source and release downloads without hosting anyone's recordings. No server, account, subscription or API key is needed to use the app. Initial setup needs internet access to download tools and model files; ordinary processing then runs locally. There is no hosted web version in this project.
 

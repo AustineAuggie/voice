@@ -1,5 +1,7 @@
 # Download and share Voice
 
+**Windows users:** see the [Windows download and installation guide](Windows/README.md). That edition is a prebuilt app for Intel/AMD 64-bit Windows. The source-installer instructions below are for the **Mac edition**.
+
 Share this public link with anyone:
 
 **https://github.com/AustineAuggie/voice**
@@ -12,7 +14,7 @@ They can read the instructions and download the source without being invited to 
 - Apple Command Line Tools with **macOS SDK 15 or newer** to compile the app. The installer explains missing requirements and downloads CMake if needed.
 - Internet access for initial setup. The first installation downloads approximately **6.34 GB of model files**, plus tools and engine dependencies. Allow additional storage for the build and saved meetings.
 
-This is a **source installer**. It builds Voice on the recipient's Mac; the download is not a precompiled app that can simply be dragged into Applications. Windows, Linux, iPhone and Chrome extension versions are not included.
+The Mac download is a **source installer**. It builds Voice on the recipient's Mac; that download is not a precompiled app that can simply be dragged into Applications. Windows has its separate download linked above. Linux, iPhone and Chrome extension versions are not included.
 
 ## Download and install
 

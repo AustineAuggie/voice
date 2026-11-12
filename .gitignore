@@ -34,6 +34,17 @@ App-backups.noindex/
 *.log
 .library-*/
 
+# Windows build output and local IDE state
+**/bin/
+**/obj/
+dist-windows.noindex/
+.vs/
+*.user
+*.suo
+*.exe
+*.dll
+*.pdb
+
 # Local credentials and signing material
 .env
 .env.*

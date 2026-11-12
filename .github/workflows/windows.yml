@@ -1,0 +1,121 @@
+name: Windows build and package
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'Windows/**'
+      - 'Native/**'
+      - 'Resources/**'
+      - '.github/workflows/windows.yml'
+      - 'LICENSE'
+      - 'THIRD-PARTY-NOTICES.txt'
+  pull_request:
+    paths:
+      - 'Windows/**'
+      - 'Native/**'
+      - 'Resources/**'
+      - '.github/workflows/windows.yml'
+  workflow_dispatch:
+    inputs:
+      publish_release:
+        description: 'Publish the tested Windows preview ZIP as a public release'
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: voice-windows-${{ github.ref }}-${{ github.event_name }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: windows-2022
+    timeout-minutes: 60
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
+      - name: Install supported .NET SDK
+        uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4.3.1
+        with:
+          dotnet-version: '10.0.x'
+      - name: Build and test the Windows package
+        shell: pwsh
+        run: ./Windows/build.ps1 -OutputDirectory ./dist-windows.noindex
+      - name: Keep tested download
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: Voice-Windows-x64
+          path: |
+            dist-windows.noindex/Voice-0.7.0-Windows-x64.zip
+            dist-windows.noindex/Voice-0.7.0-Windows-x64.zip.sha256
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 0
+      - name: Keep synthetic interface previews
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: Voice-Windows-UI-preview
+          path: dist-windows.noindex/ui-preview/*.png
+          if-no-files-found: error
+          retention-days: 30
+
+  release:
+    if: github.event_name == 'workflow_dispatch' && inputs.publish_release && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: windows-2022
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - name: Download tested package
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: Voice-Windows-x64
+          path: release-files
+      - name: Verify and publish Windows preview
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_COMMIT: ${{ github.sha }}
+          BUILD_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $zip = 'release-files/Voice-0.7.0-Windows-x64.zip'
+          $shaFile = $zip + '.sha256'
+          $expected = ((Get-Content -LiteralPath $shaFile -Raw).Trim() -split '\s+')[0]
+          $actual = (Get-FileHash -LiteralPath $zip -Algorithm SHA256).Hash.ToLowerInvariant()
+          if ($expected -notmatch '^[a-f0-9]{64}$' -or $actual -ne $expected) { throw 'Release download checksum differs from the tested package.' }
+          $notes = @"
+          Voice for **Intel/AMD 64-bit Windows** is available as a prebuilt preview. Windows ARM and 32-bit Windows are not included. Windows 11 is the recommended platform. This is a separate Windows edition; the Mac download remains unchanged.
+
+          ## Install
+
+          1. Download **Voice-0.7.0-Windows-x64.zip** from Assets.
+          2. Right-click the ZIP, choose **Extract All**, and open the extracted Voice folder.
+          3. Double-click **Voice.exe**. Keep the other files and the engines folder beside it.
+          4. Download the speech model in Settings, then test a short dictation. Optional editor and speaker models enable local cleanup and speaker analysis.
+
+          The .NET desktop runtime and native engines are included. No developer tools, API key, cloud server or administrator installation is required. Models download separately on first use and are then reused locally. Clean editing and meeting summaries use an additional large local model; CPU processing can take longer than on an Apple silicon Mac.
+
+          For Start menu and desktop shortcuts, the extracted folder includes an optional per-user install.cmd. If your organisation blocks scripts, Voice.exe can be used directly. This preview is not digitally signed; do not disable Windows security protections to install it.
+
+          ## Privacy and validation
+
+          Dictation and meeting processing run on the computer. Models, settings and saved meetings stay in LocalAppData\Voice. Automatic meeting detection only suggests starting; it does not start recording by itself. Speaker attribution remains experimental.
+
+          The package passed compilation, core regression checks, native startup/audio checks, a real local speech inference check, packaged WPF startup and installer integrity/upgrade checks on a Windows runner. [Build evidence]($env:BUILD_RUN_URL). These automated checks do not establish microphone permissions, real call capture, app-specific pasting or speaker accuracy on every PC.
+
+          [Windows guide](https://github.com/$env:GH_REPO/blob/$env:RELEASE_COMMIT/Windows/README.md)
+
+          SHA-256: $actual
+          "@
+          $notes | Set-Content -LiteralPath release-notes.md -Encoding utf8NoBOM
+          gh release create v0.7.0-windows-preview $zip $shaFile --repo $env:GH_REPO --target $env:RELEASE_COMMIT --title 'Voice 0.7.0 for Windows — preview' --prerelease --latest=false --notes-file release-notes.md
+          if ($LASTEXITCODE -ne 0) { throw 'Release publication failed. An existing version is never replaced automatically.' }

@@ -1,5 +1,7 @@
 #include "whisper.h"
 #include "WorkerLoop.hpp"
+#include "windows/WindowsEntry.hpp"
+#include <filesystem>
 #include <fstream>
 #include <iostream>
 #include <vector>
@@ -8,7 +10,7 @@
 #include <chrono>
 #include <algorithm>
 using json = nlohmann::json;
-int main(int argc, char **argv) {
+int VOICE_MAIN(int argc, char **argv) {
     if (argc != 2) return 2;
     auto options = whisper_context_default_params(); options.use_gpu = true;
     auto ctx = whisper_init_from_file_with_params(argv[1], options);
@@ -18,7 +20,7 @@ int main(int argc, char **argv) {
             // a versioned JSON payload inside text. Ordinary dictation is
             // unchanged and does not enable the extra timestamp work.
             const bool timed=req.value("timed",false);
-            std::ifstream f(req.at("audio").get<std::string>(), std::ios::binary | std::ios::ate);
+            std::ifstream f(std::filesystem::u8path(req.at("audio").get<std::string>()), std::ios::binary | std::ios::ate);
             if (!f) throw std::runtime_error("Recording file is unavailable.");
             auto size = f.tellg();
             if (size <= 0 || size % 4 != 0 || size > 16000LL*4*3600) throw std::runtime_error("Invalid recording size.");
@@ -94,4 +96,6 @@ int main(int argc, char **argv) {
             return {{"text", text}, {"seconds", elapsed}};
     });
     whisper_free(ctx);
+    return 0;
 }
+VOICE_WINDOWS_ENTRY

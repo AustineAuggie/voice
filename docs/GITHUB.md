@@ -8,7 +8,7 @@ GitHub distributes the software. The person who downloads it runs the software o
 | Hosted web service | A server receives audio and runs models | Not implemented; would need a separate service, authentication, storage and hosting |
 | Self-hosted server | A server managed by the user | Not implemented; this is a native Mac desktop app, not a server package |
 
-There is no need for your friends or family to run a local server. They need a compatible Mac. The app is not currently a Windows, Linux, iPhone or Chrome extension application.
+There is no need for your friends or family to run a local server. They need a compatible Mac, or an Intel/AMD 64-bit Windows PC using the separate [Windows edition](../Windows/README.md). Linux, iPhone and Chrome extension versions are not included. The Mac source installation instructions below are separate from the Windows prebuilt package.
 
 ## What to publish
 

@@ -1,5 +1,6 @@
 #include "llama.h"
 #include "WorkerLoop.hpp"
+#include "windows/WindowsEntry.hpp"
 #include <iostream>
 #include <vector>
 #include <string>
@@ -15,7 +16,7 @@ nullable ::= string | "null"
 string ::= "\"" ([^"\\\x00-\x1f] | "\\" (["\\/bfnrt] | "u" [0-9a-fA-F]{4}))* "\""
 ws ::= [ \t\n\r]*
 )gbnf";
-int main(int argc,char **argv) {
+int VOICE_MAIN(int argc,char **argv) {
     if (argc!=2) return 2;
     llama_backend_init();
     auto mp=llama_model_default_params(); mp.n_gpu_layers=99;
@@ -117,4 +118,6 @@ int main(int argc,char **argv) {
         } catch (...) { cachedPrefix.clear(); llama_kv_self_clear(ctx); throw; }
     });
     llama_free(ctx);llama_model_free(model);llama_backend_free();
+    return 0;
 }
+VOICE_WINDOWS_ENTRY
