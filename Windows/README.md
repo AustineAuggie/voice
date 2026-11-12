@@ -19,7 +19,7 @@ The application includes its .NET desktop runtime. Your friend does not need Vis
 - **Intel or AMD 64-bit Windows**, with Windows 11 recommended. Windows on ARM and 32-bit Windows packages are not included.
 - Windows 10 compatibility has not been established on a physical PC. The application uses .NET 10; Microsoft's supported Windows versions depend on the Windows edition and servicing status. See [Microsoft's Windows support table](https://learn.microsoft.com/dotnet/core/install/windows).
 - **16 GB RAM is recommended** for the large speech and editor models. Actual memory needs depend on the selected models and the length of the recording.
-- Several gigabytes of free storage for models, plus space for saved meeting audio. The full model collection is approximately **6.34 GB**, separate from the application download.
+- Several gigabytes of free storage for models, plus space for saved meeting audio. The default speech model together with the optional editor and speaker models uses approximately **6.34 GB**, separate from the application download. Additional speech models use more space.
 - A microphone. For online meetings, select microphone plus system audio. Headphones help avoid capturing remote voices twice through the microphone.
 
 This first Windows build uses CPU inference. It does not require an NVIDIA GPU. Older or low-power PCs may take considerably longer to transcribe, clean text or analyse a meeting. A successful build is not a performance benchmark.

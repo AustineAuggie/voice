@@ -26,7 +26,8 @@ function Get-Verified([string]$Url, [string]$Path, [string]$Expected) {
     $temporary = "$Path.download"
     for ($attempt = 1; $attempt -le 3; $attempt++) {
         try {
-            Invoke-WebRequest -Uri $Url -OutFile $temporary -UseBasicParsing
+            Write-Host "Downloading pinned speaker engine archive (attempt $attempt of 3)."
+            Invoke-WebRequest -Uri $Url -OutFile $temporary -UseBasicParsing -TimeoutSec 180
             if (-not (Test-Hash $temporary $Expected)) { throw "Downloaded engine archive failed SHA-256 verification: $Url" }
             Move-Item -LiteralPath $temporary -Destination $Path -Force
             return
@@ -54,9 +55,9 @@ try { $sourceKey = ([BitConverter]::ToString($hasher.ComputeHash([Text.Encoding]
 finally { $hasher.Dispose() }
 $common = @('-G', 'Visual Studio 17 2022', '-A', 'x64',
     '-DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded', '-DCMAKE_POLICY_DEFAULT_CMP0091=NEW',
-    '-DCMAKE_C_FLAGS=/utf-8', '-DCMAKE_CXX_FLAGS=/utf-8',
+    '-DCMAKE_C_FLAGS=/utf-8', '-DCMAKE_CXX_FLAGS=/utf-8 /EHsc',
     '-DGGML_NATIVE=OFF', '-DGGML_AVX=OFF', '-DGGML_AVX2=OFF', '-DGGML_AVX512=OFF',
-    '-DGGML_AVX_VNNI=OFF', '-DGGML_FMA=OFF', '-DGGML_F16C=OFF', '-DGGML_SSE42=OFF',
+    '-DGGML_AVX_VNNI=OFF', '-DGGML_FMA=OFF', '-DGGML_F16C=OFF', '-DGGML_SSE42=OFF', '-DGGML_BMI2=OFF',
     '-DGGML_OPENMP=OFF', '-DGGML_METAL=OFF', '-DGGML_CUDA=OFF', '-DGGML_VULKAN=OFF',
     '-DBUILD_SHARED_LIBS=OFF', '-DGGML_STATIC=ON', "-DJSON_INCLUDE=$SpeechSource/examples")
 $jobs = [Math]::Max(1, [Math]::Min(4, [Environment]::ProcessorCount))
