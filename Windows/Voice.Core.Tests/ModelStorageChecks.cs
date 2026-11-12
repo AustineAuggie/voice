@@ -14,6 +14,7 @@ public static class ModelStorageChecks
         try
         {
             var paths = new AppPaths(temporary);
+            Check(ModelCatalog.SpeakerModels.All(x => x.ArchiveMember == null), "Shipped speaker models must download directly without invoking a system archive extractor.");
             var store = new LocalStore(paths);
             Check(!store.LoadSettings().CleanMode, "First launch must use Fast mode.");
             store.SaveSettings(new VoiceSettings { Language = "en" });

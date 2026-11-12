@@ -12,7 +12,7 @@ if (-not $CacheDirectory) { $CacheDirectory = Join-Path $ProjectRoot '.build/win
 $CacheDirectory = [IO.Path]::GetFullPath($CacheDirectory)
 $OutputDirectory = [IO.Path]::GetFullPath($OutputDirectory)
 New-Item -ItemType Directory -Force $CacheDirectory, $OutputDirectory | Out-Null
-foreach ($tool in @('git', 'cmake', 'tar.exe', 'curl.exe')) { if (-not (Get-Command $tool -ErrorAction SilentlyContinue)) { throw "Missing build tool: $tool" } }
+foreach ($tool in @('git', 'cmake', 'python', 'curl.exe')) { if (-not (Get-Command $tool -ErrorAction SilentlyContinue)) { throw "Missing build tool: $tool" } }
 
 function Invoke-Checked([string]$Command, [string[]]$Arguments) {
     & $Command @Arguments
@@ -56,7 +56,7 @@ $sdkName = 'sherpa-onnx-v2.0.1-win-x64-shared-MT-Release-no-tts-lib'
 $archive = Join-Path $CacheDirectory "$sdkName.tar.bz2"
 Get-Verified "https://github.com/k2-fsa/sherpa-onnx/releases/download/v2.0.1/$sdkName.tar.bz2" $archive '21da6a8b92d63ca02ad41dbfc120012343aaaec2e5e02b14819c6b4f38004509'
 Write-Host 'Extracting the verified speaker archive.'
-Invoke-Checked 'tar.exe' @('-xjf', $archive, '-C', $CacheDirectory)
+Invoke-Checked 'python' @((Join-Path $PSScriptRoot 'extract-speaker-sdk.py'), $archive, $CacheDirectory)
 Write-Host 'Speaker archive extracted.'
 $sdkLib = Join-Path $CacheDirectory "$sdkName/lib"
 $libraries = @{

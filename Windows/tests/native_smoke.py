@@ -17,7 +17,6 @@ import struct
 import subprocess
 import shutil
 import sys
-import tarfile
 import tempfile
 import threading
 import time
@@ -102,11 +101,10 @@ class Worker:
                 self.process.wait(timeout=10)
 
 def speaker_checks(engines: Path, directory: Path, cache: Path, audio: Path) -> None:
-    archive = download('https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-segmentation-models/sherpa-onnx-pyannote-segmentation-3-0.tar.bz2',
-        cache / 'speaker-segmentation.tar.bz2', '24615ee884c897d9d2ba09bb4d30da6bb1b15e685065962db5b02e76e4996488')
+    original_model = download('https://huggingface.co/csukuangfj/sherpa-onnx-pyannote-segmentation-3-0/resolve/9403a6902bb58e3d5ae8c7e77c3422de279db2e0/model.onnx',
+        cache / 'segmentation.onnx', '220ad67ca923bef2fa91f2390c786097bf305bceb5e261d4af67b38e938e1079')
     segmentation = directory / 'segmentation-声音.onnx'
-    with tarfile.open(archive) as bundle:
-        segmentation.write_bytes(bundle.extractfile('sherpa-onnx-pyannote-segmentation-3-0/model.onnx').read())
+    shutil.copyfile(original_model, segmentation)
     assert hashlib.sha256(segmentation.read_bytes()).hexdigest() == '220ad67ca923bef2fa91f2390c786097bf305bceb5e261d4af67b38e938e1079'
     embedding = download('https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-recongition-models/wespeaker_en_voxceleb_resnet34.onnx',
         cache / 'embedding.onnx', '5ef208a9da1453335308a6b6f4e6dfbd7e183a38b604de0a57664f45d257fe94')

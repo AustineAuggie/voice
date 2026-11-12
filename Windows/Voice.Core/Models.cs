@@ -53,7 +53,7 @@ public static class ModelCatalog
     };
     public static readonly IReadOnlyList<ModelAsset> SpeakerModels = new[]
     {
-        new ModelAsset("segmentation", "Speakers/segmentation.onnx", "https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-segmentation-models/sherpa-onnx-pyannote-segmentation-3-0.tar.bz2", "24615ee884c897d9d2ba09bb4d30da6bb1b15e685065962db5b02e76e4996488", null, "sherpa-onnx-pyannote-segmentation-3-0/model.onnx", "220ad67ca923bef2fa91f2390c786097bf305bceb5e261d4af67b38e938e1079", 200_000_000),
+        new ModelAsset("segmentation", "Speakers/segmentation.onnx", "https://huggingface.co/csukuangfj/sherpa-onnx-pyannote-segmentation-3-0/resolve/9403a6902bb58e3d5ae8c7e77c3422de279db2e0/model.onnx", "220ad67ca923bef2fa91f2390c786097bf305bceb5e261d4af67b38e938e1079", 5_992_913, MaximumBytes: 200_000_000),
         new ModelAsset("embedding", "Speakers/embedding.onnx", "https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-recongition-models/wespeaker_en_voxceleb_resnet34.onnx", "5ef208a9da1453335308a6b6f4e6dfbd7e183a38b604de0a57664f45d257fe94", null, MaximumBytes: 200_000_000)
     };
     public static ModelAsset Speech(string id) => SpeechModels.FirstOrDefault(m => m.Id == id)
