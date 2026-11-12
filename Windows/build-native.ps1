@@ -12,7 +12,7 @@ if (-not $CacheDirectory) { $CacheDirectory = Join-Path $ProjectRoot '.build/win
 $CacheDirectory = [IO.Path]::GetFullPath($CacheDirectory)
 $OutputDirectory = [IO.Path]::GetFullPath($OutputDirectory)
 New-Item -ItemType Directory -Force $CacheDirectory, $OutputDirectory | Out-Null
-foreach ($tool in @('git', 'cmake', 'tar.exe')) { if (-not (Get-Command $tool -ErrorAction SilentlyContinue)) { throw "Missing build tool: $tool" } }
+foreach ($tool in @('git', 'cmake', 'tar.exe', 'curl.exe')) { if (-not (Get-Command $tool -ErrorAction SilentlyContinue)) { throw "Missing build tool: $tool" } }
 
 function Invoke-Checked([string]$Command, [string[]]$Arguments) {
     & $Command @Arguments
@@ -27,7 +27,8 @@ function Get-Verified([string]$Url, [string]$Path, [string]$Expected) {
     for ($attempt = 1; $attempt -le 3; $attempt++) {
         try {
             Write-Host "Downloading pinned speaker engine archive (attempt $attempt of 3)."
-            Invoke-WebRequest -Uri $Url -OutFile $temporary -UseBasicParsing -TimeoutSec 180
+            Invoke-Checked 'curl.exe' @('--fail', '--location', '--silent', '--show-error',
+                '--connect-timeout', '20', '--max-time', '180', '--output', $temporary, $Url)
             if (-not (Test-Hash $temporary $Expected)) { throw "Downloaded engine archive failed SHA-256 verification: $Url" }
             Move-Item -LiteralPath $temporary -Destination $Path -Force
             return
